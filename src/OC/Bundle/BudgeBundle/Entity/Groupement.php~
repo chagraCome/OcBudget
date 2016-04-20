@@ -1,0 +1,73 @@
+<?php
+
+namespace OC\Bundle\BudgeBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Groupement
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="OC\Bundle\BudgeBundle\Entity\GroupementRepository")
+ */
+class Groupement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="label_groupement", type="string", length=255)
+     */
+    private $labelGroupement;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    /**
+   * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget", mappedBy="Groupements")
+
+   */
+    private $Line_Budgets;
+     public function __construct()
+  {
+    $this->Line_Budgets = new ArrayCollection();
+  }
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set labelGroupement
+     *
+     * @param string $labelGroupement
+     * @return Groupement
+     */
+    public function setLabelGroupement($labelGroupement)
+    {
+        $this->labelGroupement = $labelGroupement;
+
+        return $this;
+    }
+
+    /**
+     * Get labelGroupement
+     *
+     * @return string 
+     */
+    public function getLabelGroupement()
+    {
+        return $this->labelGroupement;
+    }
+}

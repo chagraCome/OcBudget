@@ -1,0 +1,7 @@
+oc_budge_line_budget:
+    resource: "@OCBudgeBundle/Resources/config/routing/line_budget.yml"
+    prefix:   /line_budget
+
+oc_budge_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: OCBudgeBundle:Default:index }

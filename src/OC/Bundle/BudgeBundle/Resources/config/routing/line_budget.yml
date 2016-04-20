@@ -1,0 +1,30 @@
+line_budget:
+    path:     /
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:index" }
+
+line_budget_show:
+    path:     /{id}/show
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:show" }
+
+line_budget_new:
+    path:     /new
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:new" }
+
+line_budget_create:
+    path:     /create
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:create" }
+    methods:  POST
+
+line_budget_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:edit" }
+
+line_budget_update:
+    path:     /{id}/update
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:update" }
+    methods:  [POST, PUT]
+
+line_budget_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OCBudgeBundle:Line_Budget:delete" }
+    methods:  [POST, DELETE]

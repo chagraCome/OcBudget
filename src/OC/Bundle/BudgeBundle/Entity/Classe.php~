@@ -1,0 +1,78 @@
+<?php
+
+namespace OC\Bundle\BudgeBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * class
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="OC\Bundle\BudgeBundle\Entity\classRepository")
+ */
+class Classe
+{
+     /**
+   * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget", mapedBy="Classes")
+
+   */
+ 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="label_class", type="string", length=255)
+     */
+    private $labelClass;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+      /**
+   * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget", mappedBy="Classes")
+
+   */
+     private $Line_Budgets;
+     public function __construct()
+  {
+    $this->Line_Budgets = new ArrayCollection();
+  }
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set labelClass
+     *
+     * @param string $labelClass
+     * @return class
+     */
+    public function setLabelClass($labelClass)
+    {
+        $this->labelClass = $labelClass;
+
+        return $this;
+    }
+
+    /**
+     * Get labelClass
+     *
+     * @return string 
+     */
+    public function getLabelClass()
+    {
+        return $this->labelClass;
+    }
+}
