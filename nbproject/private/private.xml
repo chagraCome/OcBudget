@@ -4,13 +4,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/web/app_dev.php</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/app/config/security.yml</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/web/app.php</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Entity/User.php</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/app/config/parameters.yml</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/app/config/config.yml</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/composer.json</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/SecurityController.php</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/RegistrationController.php</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/app/config/routing.yml</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Resources/config/routing.yml</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/DefaultController.php</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/ProfileController.php</file>
         </group>
     </open-files>
 </project-private>
