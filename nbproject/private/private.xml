@@ -6,8 +6,10 @@
         <group>
             <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/SecurityController.php</file>
             <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/RegistrationController.php</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/app/AppKernel.php</file>
             <file>file:/home/mehdiraddadi/demo/OcBudget/app/config/routing.yml</file>
             <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Resources/config/routing.yml</file>
+            <file>file:/home/mehdiraddadi/demo/OcBudget/app/Resources/views/base.html.twig</file>
             <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Resources/views/Security/login.html.twig</file>
             <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/DefaultController.php</file>
             <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Controller/ProfileController.php</file>

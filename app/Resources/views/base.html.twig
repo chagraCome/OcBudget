@@ -3,11 +3,42 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            {% stylesheets
+                    'css/*'
+                    'bower_components/bootstrap/dist/css/bootstrap.css' 
+                output='style/compiled.css' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    {% block body %}{% endblock %}
+    {% block javascripts %}
+        {% javascripts 
+            'bower_components/jquery/dist/jquery.js'
+            'bower_components/bootstrap/dist/js/bootstrap.min.js'
+            'bower_components/slimscroll/jquery.slimscroll.min.js'
+            'bower_components/flot/excanvas.min.js'
+            'bower_components/flot/jquery.flot.js'
+            'bower_components/flot/jquery.flot.pie.js'
+            'bower_components/flot/jquery.flot.resize.js'
+            'bower_components/flot/jquery.flot.time.js'
+            'bower_components/flot.tooltip/js/jquery.flot.tooltip.js'
+            'js/mvpready-admin.js' output='style/compiled.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+{#        <!-- App JS -->
+        <script src="../../global/js/mvpready-core.js"></script>
+        <script src="../../global/js/mvpready-helpers.js"></script>
+
+
+        <!-- Demo JS -->
+        <script src="../../global/js/demos/flot/line.js"></script>
+        <script src="../../global/js/demos/flot/pie.js"></script>
+        <script src="../../global/js/demos/flot/auto.js"></script>#}
+    {% endblock %}
+</body>
 </html>
