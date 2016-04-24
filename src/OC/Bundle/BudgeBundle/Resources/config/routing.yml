@@ -5,3 +5,6 @@ oc_budge_line_budget:
 oc_budge_homepage:
     path:     /hello/{name}
     defaults: { _controller: OCBudgeBundle:Default:index }
+oc_budge_home:
+    path:     /
+    defaults: { _controller: OCBudgeBundle:Default:home }
