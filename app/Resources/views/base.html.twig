@@ -4,15 +4,25 @@
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
             {% stylesheets
-                    'css/*'
-                    'bower_components/bootstrap/dist/css/bootstrap.css' 
-                output='style/compiled.css' filter='cssrewrite' %}
-            <link rel="stylesheet" href="{{ asset_url }}" />
+                    'bower_components/fontawesome/css/font-awesome.min.css'
+                    'bower_components/bootstrap/dist/css/bootstrap.min.css' 
+                    'css/mvpready-admin.css'
+                    'css/custom.css'
+                    'css/timeline.css' output='style/compiled/'%}
+        <link rel="stylesheet" href="{{ asset_url }}" />
             {% endstylesheets %}
+        <style>
+            A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
+            A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
+            A.info          {color:#2F5BFF;background:transparent;text-decoration:none}
+            A.info:hover    {color:green;background:transparent;text-decoration:underline}
+        </style>
         {% endblock %}
     </head>
-    <body>
+    <body class="account-bg">
     {% block body %}{% endblock %}
     {% block javascripts %}
         {% javascripts 
@@ -40,5 +50,5 @@
         <script src="../../global/js/demos/flot/pie.js"></script>
         <script src="../../global/js/demos/flot/auto.js"></script>#}
     {% endblock %}
-</body>
+    </body>
 </html>
