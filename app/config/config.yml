@@ -84,3 +84,10 @@ fos_user:
     db_driver: orm 
     firewall_name: main
     user_class: OC\UserBundle\Entity\User
+fos_user:
+    # ...
+    registration:
+        form:
+            type: OC\Bundle\BudgeBundle\Form\RegistrationType
+            # if you are using Symfony < 2.8 you should use the type name instead
+            # type: app_user_registration
