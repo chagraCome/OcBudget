@@ -6,34 +6,29 @@
  */
 namespace OC\UserBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use FOS\UserBundle\Form\Type\RegistrationFormType as BaseRegistrationFormType;
 
-class RegistrationType extends AbstractType
+class RegistrationType extends BaseRegistrationFormType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
         $builder->add('name');
     }
-
-    public function getParent()
+    
+      
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
-
-        // Or for Symfony < 2.8
-        // return 'fos_user_registration';
+        $resolver->setDefaults(array(
+            'data_class' => 'OC\UserBundle\Entity\User',
+        ));
     }
 
-    public function getBlockPrefix()
+     public function getName()
     {
-        return 'app_user_registration';
-    }
-
-    // For Symfony 2.x
-    public function getName()
-    {
-        return $this->getBlockPrefix();
+        return 'custom_user_registration';
     }
 }
 ?>

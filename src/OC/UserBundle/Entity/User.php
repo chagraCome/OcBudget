@@ -1,4 +1,5 @@
 <?php
+
 namespace OC\UserBundle\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
@@ -16,25 +17,25 @@ class User extends BaseUser {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-   
-   /**
+
+    /**
      * @ORM\Column(type="string", length=100)
      */
     protected $name;
-    public function setName($Name)
-    {
-        $this->Name = $Name;
+
+    public function __construct() {
+        parent::__construct();
+        // your own logic
+    }
+
+    public function setName($Name) {
+        $this->name = $Name;
 
         return $this;
     }
 
-    public function getName()
-    {
-        return $this->Name;
-    }
-    public function __construct() {
-        parent::__construct();
-        // your own logic
+    public function getName() {
+        return $this->name;
     }
 
 }
