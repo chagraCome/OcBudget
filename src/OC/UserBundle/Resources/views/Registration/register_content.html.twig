@@ -1,32 +1,33 @@
 {% trans_default_domain 'FOSUserBundle' %}
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-<div>
-{{ form_label(form.name) }}    
-{{ form_widget(form.name) }}
-{{ form_errors(form.name) }}
-</div>
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form account-form'}}) }}
+
 
 <div>
-{{ form_label(form.email) }}    
-{{ form_widget(form.email) }}
+{{ form_label(form.email,{'attr': {'class': 'placeholder-hidden'}}) }}    
+{{ form_widget(form.email,{'attr': {'class': 'form-control'}}) }}
 {{ form_errors(form.email) }}
 </div>
 
 <div>
-{{ form_label(form.username) }}    
-{{ form_widget(form.username) }}
+{{ form_label(form.name,{'attr': {'class': 'placeholder-hidden'}}) }}    
+{{ form_widget(form.name,{'attr': {'class': 'form-control'}}) }}
+{{ form_errors(form.name) }}
+</div>
+<div>
+{{ form_label(form.username,{'attr': {'class': 'placeholder-hidden'}}) }}    
+{{ form_widget(form.username,{'attr': {'class': 'form-control'}}) }}
 {{ form_errors(form.username) }}
 </div>
 
 <div>
-{{ form_label(form.plainPassword.first) }}    
-{{ form_widget(form.plainPassword.first) }}
+{{ form_label(form.plainPassword.first,{'attr': {'class': 'placeholder-hidden'}}) }}    
+{{ form_widget(form.plainPassword.first,{'attr': {'class': 'form-control'}}) }}
 {{ form_errors(form.plainPassword.first) }}
 </div>
 
 <div>
-{{ form_label(form.plainPassword.second) }}    
-{{ form_widget(form.plainPassword.second) }}
+{{ form_label(form.plainPassword.second,{'attr': {'class': 'placeholder-hidden'}}) }}    
+{{ form_widget(form.plainPassword.second,{'attr': {'class': 'form-control'}}) }}
 {{ form_errors(form.plainPassword.second) }}
 </div>
 
