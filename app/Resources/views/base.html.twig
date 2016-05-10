@@ -40,6 +40,133 @@
             'js/mvpready-admin.js' output='style/compiled.js'
         %}
         <script src="{{ asset_url }}"></script>
+        <script>
+$(function	()	{			
+			function trait_filter_select() {
+			  var articleValues = $( "#choix_article" ).val();
+			  $('#div_hidden_1').show();$('#div_hidden_2').show();
+			  if (articleValues.substring(0, 2) == '01' || articleValues.substring(0, 2) == '02' || articleValues.substring(0, 2) == '03') {
+			    $('#choix_paragraphe').prop('disabled', 'disabled');
+				$('#choix_region').prop('disabled', 'disabled');
+				$('#sous_paragraphe').prop('disabled', false);
+				$('#div_paragraphe').hide();
+				$('#div_region').hide();
+				$('#div_sous_paragraphe').show();
+			  }else {
+				$('#div_hidden_1').hide();
+				$('#choix_paragraphe').prop('disabled', false);
+				$('#choix_region').prop('disabled', false);
+				$('#sous_paragraphe').prop('disabled', 'disabled');
+				$('#div_paragraphe').show();
+				$('#div_region').show();
+				$('#div_sous_paragraphe').hide();
+			  }			  
+			}
+			 
+			$("select").change(trait_filter_select);
+			trait_filter_select();
+			
+			
+			// methode de payement
+			var check_methode_payement_autre = $('#autre_financement');
+			var checkMethodePayementAutreValue = check_methode_payement_autre.filter(':checked').val();
+			if (!checkMethodePayementAutreValue) {
+				$("#valeur_autre_financement").val('');
+				$('#valeur_autre_financement').attr('data-parsley-required', 'false');
+				$("#payement_autre").hide();
+			}else {
+				$("#payement_autre").show();
+				$('#valeur_autre_financement').attr('data-parsley-required', 'true');
+			}	
+			
+			
+			$('input#autre_financement').change(function() {
+				var check_methode_payement_autre = $('#autre_financement');
+				var checkMethodePayementAutreValue = check_methode_payement_autre.filter(':checked').val();
+				if (checkMethodePayementAutreValue) {
+					$("#payement_autre").show();
+					$('#valeur_autre_financement').attr('data-parsley-required', 'true');
+					$('#valeur_autre_financement').attr('enabled', 'true');
+				}else {
+					$("#valeur_autre_financement").val('');
+					$('#valeur_autre_financement').attr('data-parsley-required', 'false');
+					$("#payement_autre").hide();
+				}
+			});
+			
+			// cadre de planification des marché			
+			var check_marche = $('#radio_cadre_marche').filter(':checked').val();
+			if (!check_marche) {
+				$("#numero_marche").val('');
+				$('#numero_marche').attr('data-parsley-required', 'false');
+				$("#cadre_marche").hide();
+			}else {
+				$("#cadre_marche").show();
+				$('#numero_marche').attr('data-parsley-required', 'true');
+			}
+
+			$('input#radio_cadre_marche').change(function() {
+				check_marche = $('#radio_cadre_marche').filter(':checked').val();
+				if (check_marche) {
+					$("#cadre_marche").show();
+					$('#numero_marche').attr('data-parsley-required', 'true');
+					$('#numero_marche').attr('enabled', 'true');
+				}else {
+					$("#numero_marche").val('');
+					$('#numero_marche').attr('data-parsley-required', 'false');
+					$("#cadre_marche").hide();
+				}
+			});
+			
+			// cadre de planification hors marche
+			check_marche = $('#radio_cadre_horsmarche').filter(':checked').val();
+			if (!check_marche) {
+				$("#numero_horsmarche").val('');
+				$('#numero_horsmarche').attr('data-parsley-required', 'false');
+				$("#cadre_horsmarche").hide();
+			}else {
+				$("#cadre_horsmarche").show();
+				$('#numero_horsmarche').attr('data-parsley-required', 'true');
+			}
+			
+			$('input#radio_cadre_horsmarche').change(function() {
+				check_marche = $('#radio_cadre_horsmarche').filter(':checked').val();
+				if (check_marche) {
+					$("#cadre_horsmarche").show();
+					$('#numero_horsmarche').attr('data-parsley-required', 'true');
+					$('#numero_horsmarche').attr('enabled', 'true');
+				}else {
+					$("#numero_horsmarche").val('');
+					$('#numero_horsmarche').attr('data-parsley-required', 'false');
+					$("#cadre_horsmarche").hide();
+				}
+			});
+			
+			// cadre de planification hors marche
+			check_marche = $('#radio_cadre_autremarche').filter(':checked').val();
+			if (!check_marche) {
+				$("#autre_que_marche").val('');
+				$('#autre_que_marche').attr('data-parsley-required', 'false');
+				$("#cadre_autre_marche").hide();
+			}else {
+				$("#cadre_autre_marche").show();
+				$('#autre_que_marche').attr('data-parsley-required', 'true');
+			}
+			
+			$('input#radio_cadre_autremarche').change(function() {
+				check_marche = $('#radio_cadre_autremarche').filter(':checked').val();
+				if (check_marche) {
+					$("#cadre_autre_marche").show();
+					$('#autre_que_marche').attr('data-parsley-required', 'true');
+					$('#autre_que_marche').attr('enabled', 'true');
+				}else {
+					$("#autre_que_marche").val('');
+					$('#autre_que_marche').attr('data-parsley-required', 'false');
+					$("#cadre_autre_marche").hide();
+				}
+			});
+		});	
+</script>
         {% endjavascripts %}
 
 {#        <!-- App JS -->

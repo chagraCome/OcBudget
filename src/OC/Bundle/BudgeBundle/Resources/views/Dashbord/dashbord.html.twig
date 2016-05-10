@@ -20,7 +20,264 @@
 	</div> <!-- /.container -->
   </header>
 {% include "::menu_header.html.twig" %}
+ <div class="content">
+
+    <div class="container">
+	   
+      
+      
+	   
+		
+      <div class="row">
+
+        <div class="col-sm-12">
+
+          <div class="portlet portlet-boxed">
+
+            <div class="portlet-header">
+              <h4 class="portlet-title">
+                <u><i class="fa fa-toggle-down portlet-icon"></i>تحديد التبويب بالميزانيّة</u>
+              </h4>
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-body">
+			<div class="well">
+              <div class="row" dir="rtl" class="pull-right">
+
+			    <div class="col-sm-3" id="div_hidden_1"></div>
+				
+                 <div class="col-sm-3" id="div_hidden_2"></div>
+				 
+				<div class="col-sm-3" id="div_region">
+
+                  <h6>حدّد التوزيع الجغرافي : </h6>
+
+                  <select id="choix_region" name="choix_region" class="js-example-basic-single js-states form-control">
+                    <option value="AK">00</option>
+                  </select>
+
+                </div> <!-- /.col -->
+
+				
+                <div class="col-sm-3" id="div_sous_paragraphe">
+
+                  <h6>حدّد الفقرة الفرعيّة :</h6>
+				
+				  <select id="sous_paragraphe" name="sous_paragraphe" class="js-example-basic-single js-states form-control">
+                    <option value="AK">01136</option>
+                  </select>
+
+                </div> <!-- /.col -->
+
+                <div class="col-sm-3" id="div_paragraphe">
+
+                  <h6>حدّد الفقرة :</h6>
+
+				  <select id="choix_paragraphe" name="choix_paragraphe"  class="js-example-basic-single js-states form-control">
+                    <optgroup label="التأجير">
+                      <option value="AK">01136</option>
+                      <option value="HI">01138</option>
+                    </optgroup>
+                    <optgroup label="وسائل المصالح">
+                      <option value="CA">02236</option>
+                      <option value="OR">02238</option>
+                    </optgroup>
+                    <optgroup label="التدخّل العمومي">
+                      <option value="AZ">03336</option>
+                      <option value="UT">03338</option>
+                    </optgroup>
+                    <optgroup label="الإستثمارات المباشرة">
+                      <option value="TN">06604</option>
+                      <option value="WI">06605</option>
+					  <option value="TN">06608</option>
+                      <option value="WI">06618</option>
+					  <option value="WI">06619</option>
+                    </optgroup>
+                    <optgroup label="التمويل العمومي">
+                      <option value="VA">07810</option>
+                    </optgroup>
+                  </select>
+
+                </div> <!-- /.col -->
+
+				
+                <div class="col-sm-3" id="div_article">
+
+                  <h6>حدّد الفصل : </h6>
+				 <select id="choix_article" name="choix_article" class="js-example-basic-single js-states form-control">
+                    <optgroup label="التأجير">
+                      <option value="01136">01136</option>
+                      <option value="01138">01138</option>
+                    </optgroup>
+                    <optgroup label="وسائل المصالح">
+                      <option value="02236">02236</option>
+                      <option value="02238">02238</option>
+                    </optgroup>
+                    <optgroup label="التدخّل العمومي">
+                      <option value="03336">03336</option>
+                      <option value="03338">03338</option>
+                    </optgroup>
+                    <optgroup label="الإستثمارات المباشرة">
+                      <option value="06604">06604</option>
+                      <option value="06605">06605</option>
+					  <option value="06608">06608</option>
+                      <option value="06618">06618</option>
+					  <option value="06619">06619</option>
+                    </optgroup>
+                    <optgroup label="التمويل العمومي">
+                      <option value="07810">07810</option>
+                    </optgroup>
+                  </select>
+                </div> <!-- /.col -->
+
+				
+              </div> <!-- /.row -->
+			  
+			  <br>
+				<h4>بيــان النفقة : <span class="text-primary">تطويرالبنية التحيتيّة الصناعيّة</span> (برنامج الصناعة)</h4>
+				<!--<p> تحديد جملة الأنشطة  الخاصة بهذه الفقرة تحديد جملة الأنشطة  الخاصة بهذه الفقرة تحديد جملة الأنشطة  الخاصة بهذه الفقرة.</p>-->
+
+				الميزانيّة المرسّمة : 1500 (أ.د)
+				&nbsp;&nbsp;=>&nbsp;&nbsp;
+				تكلفة الأنشطة المبرمجة : 1200 (أ.د)
+				&nbsp;&nbsp;=>&nbsp;&nbsp;
+				الباقي للبرمجة : 300 (أ.د.)
+			  </div> <!-- /.well -->
+			  
+            </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet --> 
+
+        </div> <!-- /.col -->
+
+      </div>
+	  
+	  <section class="demo-section">
+
+        <div class="tab-pane fade active in" id="desc">
+            
+              <div class="portlet portlet-boxed portlet-secondary">
+
+					<div class="portlet-header">
+					  <h4 class="portlet-title">
+						<u><i class="fa fa-check portlet-icon"></i>إدخال معطايات حول النشاط</u>
+					  </h4>
+					</div> <!-- /.portlet-header -->
+
+					<div class="portlet-body">
+					  <form id="activite_identification" action="http://dev.industrie.gov.tn/pad/templates/admin/form-plugins.html" class="form parsley-form">
+
+						<div class="form-group">
+						  <label class="control-label" for="name_activity">عنوان النشاط / المشروع</label>
+						  <input type="text" id="name_activity" name="name_activity" class="form-control" data-parsley-required="true">
+						</div> <!-- /.form-group -->
+						
+						<div class="form-group">
+						  <label class="control-label" for="desc_activity">وصف النشاط / المشروع</label>
+						  <textarea id="desc_activity" name="desc_activity" class="form-control" data-parsley-trigger="keyup" data-parsley-required="true" data-parsley-required-message="Come on! You need to enter at least a 20 character comment.." data-parsley-validation-threshold="10" data-parsley-id="28"></textarea>
+						</div> <!-- /.form-group -->
+						
+						
+						<div class="form-group">
+						  <label class="control-label" for="budget_activity">الإعتمادات المخصصّة من ميزانيّة الدولة</label>
+						  <input type="text" id="budget_activity" name="budget_activity" class="form-control col-sm-6" data-parsley-required="true">(أ.د)
+						</div> 
+						
+						
+						<div class="form-group">
+							<br />
+							<label class="control-label">هل تمّ رصد موارد من خارج ميزانيّة الدولة</label>
+							<input value="-1" type="checkbox" id="autre_financement" name="autre_financement" class="ui-check" >							
+							
+							<div id="payement_autre" class="row">
+								<div class="col-sm-6 col-md-6">
+									<div class="form-group">
+											<label for="origine_financement">و مصادرها :</label>
+											<input class="form-control" id="origine_financement" name="origine_financement" type="text" placeholder="المصرد">
+									</div>
+								</div>	
+								<div class="col-sm-3 col-md-3">
+									<div class="form-group " >
+										<label for="valeur_autre_financement"> قيمتها  :</label>
+										<input type="text" id="valeur_autre_financement" name="valeur_autre_financement" class="form-control">
+									</div>
+								</div>
+							</div>
+						
+						</div> <!-- /.form-group -->
+						
+						
+						
+						<div class="form-group">
+						  <label class="control-label">طبيعة المشروع</label>
+
+						  <div class="radio">
+							<label>متواصل</label>
+							<input type="radio" name="radio-12" class="ui-check"> 
+						  </div> <!-- /.radio -->
+						  <div class="radio">
+							<label>جديد</label>
+							<input type="radio" name="radio-12" class="ui-check" data-parsley-required="true">
+						  </div> <!-- /.radio -->						  
+						  
+						</div> <!-- /.form-group -->
+						
+						<div class="form-group">
+						  <label class="control-label">طريقة الإنجاز</label>
+
+						  <div class="radio row">
+							<label>في إطار الصفقات العموميّة</label>
+							<input type="radio" name="radio_marche" id="radio_cadre_marche" class="ui-check"> 
+							
+							<div id="cadre_marche" class="col-sm-3 col-md-3 col-md-offset-9">									
+										<label for="numero_marche"> العدد  :</label>
+										<input type="text" id="numero_marche" name="numero_marche" class="form-control">
+							</div>
+						  </div> <!-- /.radio -->
+						  
+						  <div class="radio row">
+							<label>خارج  إطار الصفقات العموميّة</label>
+							<input type="radio"  name="radio_marche" id="radio_cadre_horsmarche"  class="ui-check" data-parsley-required="true">
+						    
+							<div id="cadre_horsmarche" class="col-sm-3 col-md-3 col-md-offset-9">
+										<label for="numero_horsmarche"> العدد  :</label>
+										<input type="text" id="numero_horsmarche" name="numero_horsmarche" class="form-control">
+							</div>
+						  </div> <!-- /.radio -->
+						  
+						  <div class="radio row">
+							<label>غيرها </label>
+							<input type="radio" name="radio_marche" id="radio_cadre_autremarche" class="ui-check"> 
+							
+							<div id="cadre_autre_marche" class="col-sm-3 col-md-6 col-md-offset-6">
+										<label for="autre_que_marche"> حدّد طريقة الإنجاز  :</label>
+										<input type="text" id="autre_que_marche" name="autre_que_marche" class="form-control">
+							</div>
+						  </div> <!-- /.radio -->	
+						</div> <!-- /.form-group -->
+
+						<div class="form-group">
+						  <button type="submit" class="btn btn-secondary">المصادقة</button>
+						</div> <!-- /.form-group -->
+
+					  </form>
+					 </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet --> 
+		  
+		  </div> <!-- /.tab-pane -->
+
+      </section> <!-- /.demo-section -->
+
+	
+	
+	
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+
 		
   </div> <!-- /#wrapper -->
+
 
 {% endblock body %}
