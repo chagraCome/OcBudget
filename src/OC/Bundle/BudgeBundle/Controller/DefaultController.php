@@ -12,16 +12,17 @@ class DefaultController extends Controller {
     }
 
     public function homeAction() {
+        $user = $this->getUser();
         $securityContext = $this->container->get('security.authorization_checker');
 
-        if (!$securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            // authenticated REMEMBERED, FULLY will imply REMEMBERED (NON anonymous)
-//return new Response("hello asma");
-// On redirige vers la page de visualisation de l'annonce nouvellement créée
+        if (!$user) {
             return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
-
-        //redirect to home 
+        if (!$securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
+        } else {
+            return $this->redirect($this->generateUrl('oc_user_dashboard'));
+        }
     }
 
 }

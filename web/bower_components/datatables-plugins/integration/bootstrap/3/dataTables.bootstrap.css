@@ -2,6 +2,8 @@ div.dataTables_length label {
 	font-weight: normal;
 	text-align: left;
 	white-space: nowrap;
+	
+	float:left;
 }
 
 div.dataTables_length select {
@@ -85,7 +87,7 @@ table.dataTable thead .sorting_asc:after,
 table.dataTable thead .sorting_desc:after {
 	position: absolute;
 	top: 8px;
-	right: 8px;
+	left: 8px;
 	display: block;
 	font-family: 'Glyphicons Halflings';
 	opacity: 0.5;
@@ -129,7 +131,7 @@ table.dataTable.table-condensed thead .sorting:after,
 table.dataTable.table-condensed thead .sorting_asc:after,
 table.dataTable.table-condensed thead .sorting_desc:after {
 	top: 6px;
-	right: 6px;
+	left: 6px;
 }
 
 /* Scrolling */

@@ -1,0 +1,33 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    {% stylesheets
+            'css/mvpready-admin.css'
+    %}
+<link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+ {% endblock stylesheets%}
+
+
+{% block body %}
+<div id="wrapper">
+    <header class="navbar" role="banner">
+        <div class="container">
+            <nav class="collapse navbar-collapse" role="navigation">
+                <div class="navbar-header navbar-title">
+                    البرمجة السنويّة للنفقات
+                </div>
+
+                <div class="navbar-header navbar-title">
+                PAD&nbsp;&nbsp;&nbsp;<sup>V<sup>1.0<sup></sup>
+                </div>
+                <div class="pull-left">
+                    {% include "OCUserBundle::nav-bar-menu.html.twig" %}
+                </div>
+
+            </nav>
+        </div>
+    </header>
+</div>
+
+{% endblock body %}

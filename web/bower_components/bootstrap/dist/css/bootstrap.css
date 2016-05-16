@@ -2259,7 +2259,7 @@ caption {
   text-align: left;
 }
 th {
-  text-align: right;
+  text-align: center;
 }
 .table {
   width: 100%;
@@ -2276,6 +2276,7 @@ th {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
+  text-align: center;
 }
 .table > thead > tr > th {
   vertical-align: bottom;

@@ -4,11 +4,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/app/Resources/views/base.html.twig</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Resources/views/Security/login.html.twig</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/app/config/config.yml</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/src/OC/UserBundle/Entity/User.php</file>
-            <file>file:/home/mehdiraddadi/demo/OcBudget/vendor/friendsofsymfony/user-bundle/Model/User.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Resources/views/Security/login.html.twig</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/Bundle/BudgeBundle/Controller/DefaultController.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Controller/RegistrationController.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/OCUserBundle.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Resources/views/nav-bar-menu.html.twig</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Resources/views/Dashboard/dashboard.html.twig</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Controller/DashboardController.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/app/Resources/views/base.html.twig</file>
+            <file>file:/home/mehdiraddadi/OcBudget/package.json</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Resources/views/Registration/register.html.twig</file>
+            <file>file:/home/mehdiraddadi/OcBudget/app/config/security.yml</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Resources/views/Registration/register_content.html.twig</file>
+            <file>file:/home/mehdiraddadi/OcBudget/app/config/config.yml</file>
+            <file>file:/home/mehdiraddadi/OcBudget/app/config/parameters.yml</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Controller/SecurityController.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Controller/DefaultController.php</file>
+            <file>file:/home/mehdiraddadi/OcBudget/src/OC/UserBundle/Resources/config/routing.yml</file>
         </group>
     </open-files>
 </project-private>

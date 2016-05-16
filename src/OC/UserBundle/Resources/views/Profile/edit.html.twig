@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+        {% stylesheets
+                'css/mvpready-admin.css'
+                'bower_components/bootstrap-jasny/dist/css/jasny-bootstrap.css' output='style/compiled/'%}
+<link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+<style>
+    A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
+    A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
+    A.info          {color:#2F5BFF;background:transparent;text-decoration:none}
+    A.info:hover    {color:green;background:transparent;text-decoration:underline}
+</style>
+        {% endblock %}
+{% block body %}
+<div id="wrapper">
+    {% include "OCUserBundle::varbar-header-edit.html.twig" %}
+    {% include "OCUserBundle:Profile:edit_content.html.twig" %}
+</div>
+{% endblock body %}

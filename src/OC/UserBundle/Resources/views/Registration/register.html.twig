@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+{% block stylesheets %}
+
+    {% stylesheets
+            'css/mvpready-admin.css'
+            'css/custom.css'
+            'css/timeline.css' output='style/compiled/'%}
+<link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+ {% endblock stylesheets%}
+{% block body %}
+{% include "OCUserBundle:Registration:register_content.html.twig" %}
+{% endblock body %}

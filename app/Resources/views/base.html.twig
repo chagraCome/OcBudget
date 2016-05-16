@@ -3,17 +3,20 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
-            {% stylesheets
-                    'bower_components/fontawesome/css/font-awesome.min.css'
-                    'bower_components/bootstrap/dist/css/bootstrap.min.css' 
-                    'css/mvpready-admin.css'
-                    'css/custom.css'
-                    'css/timeline.css' output='style/compiled/'%}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">   
+         {% stylesheets
+                    'bower_components/bootstrap/dist/css/bootstrap.css' 
+                     output='style/compiled/'%}
         <link rel="stylesheet" href="{{ asset_url }}" />
-            {% endstylesheets %}
+            {% endstylesheets %}        
+            {% block stylesheets %}
+
+                {% stylesheets
+                        'css/timeline.css' output='style/compiled/'%}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+                {% endstylesheets %}
         <style>
             A.applink:hover {border: 2px dotted #DCE6F4;padding:2px;background-color:#ffff00;color:green;text-decoration:none}
             A.applink       {border: 2px dotted #DCE6F4;padding:2px;color:#2F5BFF;background:transparent;text-decoration:none}
@@ -29,21 +32,19 @@
             'bower_components/jquery/dist/jquery.js'
             'bower_components/bootstrap/dist/js/bootstrap.min.js'
             'bower_components/slimscroll/jquery.slimscroll.min.js'
-            'bower_components/flot/excanvas.min.js'
-            'bower_components/flot/jquery.flot.js'
+             output='style/compiled.js'
+        %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+{#        <!-- App JS -->
+        <script src="../../global/js/mvpready-core.js"></script>
+        <script src="../../global/js/mvpready-helpers.js"></script>
+         'bower_components/flot/excanvas.min.js'
             'bower_components/flot/jquery.flot.pie.js'
             'bower_components/flot/jquery.flot.resize.js'
             'bower_components/flot/jquery.flot.time.js'
             'bower_components/flot.tooltip/js/jquery.flot.tooltip.js'
-            'js/mvpready-admin.js' output='style/compiled.js'
-        %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-
-{#        <!-- App JS -->
-        <script src="../../global/js/mvpready-core.js"></script>
-        <script src="../../global/js/mvpready-helpers.js"></script>
-
+'js/mvpready-admin.js'
 
         <!-- Demo JS -->
         <script src="../../global/js/demos/flot/line.js"></script>
