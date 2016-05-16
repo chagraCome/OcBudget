@@ -10,4 +10,13 @@ oc_budge_home:
     defaults: { _controller: OCBudgeBundle:Default:home }
 oc_budge_dashbord:
     path:     /dashbord
-    defaults: { _controller: OCBudgeBundle:Dashbord:dashbord }    
+    defaults: { _controller: OCBudgeBundle:Dashbord:dashbord }  
+oc_budge_activity:
+    path:     /activity
+    defaults: { _controller: OCBudgeBundle:Activity:activity }
+oc_budge_add_activity:
+    path:     /addactivity
+    defaults: { _controller: OCBudgeBundle:AddActivity:addactivity }
+oc_budge_budget:
+    path:     /budget
+    defaults: { _controller: OCBudgeBundle:Budget:budget } 
