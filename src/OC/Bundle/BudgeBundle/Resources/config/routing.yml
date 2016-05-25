@@ -20,3 +20,6 @@ oc_budge_add_activity:
 oc_budge_budget:
     path:     /budget
     defaults: { _controller: OCBudgeBundle:Budget:budget } 
+oc_show_budget:
+    path:     /show
+    defaults: { _controller: OCBudgeBundle:Budget:show }

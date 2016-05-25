@@ -20,8 +20,12 @@
 	</div> <!-- /.container -->
   </header>
 {% include "::menu_header.html.twig" %}
- 
 
+<ul>
+  {% for line in listLineBudgets %}
+    <li>{{ line.content }}</li>
+  {% endfor %}
+</ul>
 		
   </div> <!-- /#wrapper -->
 
