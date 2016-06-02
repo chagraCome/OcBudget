@@ -32,7 +32,12 @@ class Classe
      * @ORM\Column(name="label_class", type="string", length=255)
      */
     private $labelClass;
-
+/**
+     * @var string
+     *
+     * @ORM\Column(name="articleClasse", type="string", length=5)
+     */
+    private $articleClasse;
 
     /**
      * Get id
@@ -107,5 +112,29 @@ class Classe
     public function getLineBudgets()
     {
         return $this->Line_Budgets;
+    }
+
+    /**
+     * Set articleClasse
+     *
+     * @param string $articleClasse
+     *
+     * @return Classe
+     */
+    public function setArticleClasse($articleClasse)
+    {
+        $this->articleClasse = $articleClasse;
+
+        return $this;
+    }
+
+    /**
+     * Get articleClasse
+     *
+     * @return string
+     */
+    public function getArticleClasse()
+    {
+        return $this->articleClasse;
     }
 }

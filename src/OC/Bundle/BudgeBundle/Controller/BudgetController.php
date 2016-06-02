@@ -8,8 +8,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class BudgetController extends Controller {
 
     function budgetAction() {
-       
-        return $this->render('OCBudgeBundle:Budget:budget.html.twig');
+    $repository = $this
+  ->getDoctrine()
+  ->getManager()
+  ->getRepository('OCBudgeBundle:Line_Budget')
+;
+$budgets = $repository->findAll();  
+
+        return $this->render('OCBudgeBundle:Budget:budget.html.twig',array('budgets' => $budgets));
         
     }
 function showAction() {
@@ -25,7 +31,6 @@ $budgets = $query->getResult();*/
   ->getManager()
   ->getRepository('OCBudgeBundle:Line_Budget')
 ;
-
 $LineBudgets = $repository->findAll();
  return $this->render(
         'OCBudgeBundle:Budget:budget.html.twig',

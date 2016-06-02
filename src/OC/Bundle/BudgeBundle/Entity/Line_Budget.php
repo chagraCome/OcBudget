@@ -23,13 +23,13 @@ class Line_Budget
    * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget", mappedBy="Line_Budget")
    */ 
     
-    /**
-     * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Program")
+     /**
+     * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Programe")
      *@ORM\JoinColumn(nullable=false)
       */
+    private $programe;
      private $budget_taged;
     private $budget;
-    private $program;
     private $consammation;
     /**
      * @var integer
@@ -314,29 +314,6 @@ class Line_Budget
     }
 
     /**
-     * Set program
-     *
-     * @param \OC\Bundle\BudgeBundle\Entity\Program $program
-     * @return Line_Budget
-     */
-    public function setProgram(\OC\Bundle\BudgeBundle\Entity\Program $program)
-    {
-        $this->program = $program;
-
-        return $this;
-    }
-
-    /**
-     * Get program
-     *
-     * @return \OC\Bundle\BudgeBundle\Entity\Program 
-     */
-    public function getProgram()
-    {
-        return $this->program;
-    }
-
-    /**
      * Set budget
      *
      * @param \OC\Bundle\BudgeBundle\Entity\Program $budget
@@ -380,5 +357,29 @@ class Line_Budget
     public function getBudgetTaged()
     {
         return $this->budget_taged;
+    }
+
+    /**
+     * Set programe
+     *
+     * @param \OC\Bundle\BudgeBundle\Entity\Programe $programe
+     *
+     * @return Line_Budget
+     */
+    public function setPrograme(\OC\Bundle\BudgeBundle\Entity\Programe $programe)
+    {
+        $this->programe = $programe;
+
+        return $this;
+    }
+
+    /**
+     * Get programe
+     *
+     * @return \OC\Bundle\BudgeBundle\Entity\Programe
+     */
+    public function getPrograme()
+    {
+        return $this->programe;
     }
 }

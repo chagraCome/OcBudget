@@ -7,9 +7,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:400,300,700">
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">    
-          {% stylesheets
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+{% stylesheets
                     'bower_components/fontawesome/css/font-awesome.min.css'
                     'bower_components/bootstrap/dist/css/bootstrap.min.css' 
+                    'bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css'
                     'bower_components/bootstrap/dist/css/bootstrap.css'
                     'css/mvpready-admin.css'
                     'css/custom.css'
@@ -37,7 +39,11 @@
             'bower_components/flot/jquery.flot.resize.js'
             'bower_components/flot/jquery.flot.time.js'
             'bower_components/flot.tooltip/js/jquery.flot.tooltip.js'
+            'bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js'
+            'bower_components/datatables-helper/js/datatables-helper.js'
             'js/mvpready-admin.js' output='style/compiled.js'
+            'bower_components/datatables/media/js/jquery.dataTables.min.js'
+            'https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js'
         %}
         <script src="{{ asset_url }}"></script>
         <script>
@@ -166,6 +172,140 @@ $(function	()	{
 				}
 			});
 		});	
+</script>
+	<script>
+$(document).ready(function() {
+    $('#budget_article').DataTable( {
+        destroy: true,
+		"lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
+		"footerCallback": function ( row, data, start, end, display ) {
+            var api = this.api(), data;
+ 
+            // Remove the formatting to get integer data for summation
+            var intVal = function ( i ) {
+                return typeof i === 'string' ?
+                    i.replace(/[\$,]/g, '')*1 :
+                    typeof i === 'number' ?
+                        i : 0;
+            };
+			
+			
+			var footer_cells = function ( i ) {
+					
+				// Total over all pages
+				total = api
+					.column(i)
+					.data()
+					.reduce( function (a, b) {
+						//return intVal(a) + intVal(b);
+						return parseInt(a)+parseInt(b);
+					}, 0 );
+					
+				// format Money
+				Number.prototype.formatMoney = function(c, d, t){
+				var n = this, 
+					c = isNaN(c = Math.abs(c)) ? 2 : c, 
+					d = d == undefined ? "." : d, 
+					t = t == undefined ? "," : t, 
+					s = n < 0 ? "-" : "", 
+					i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "", 
+					j = (j = i.length) > 3 ? j % 3 : 0;
+				   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+				 };
+ 
+				// Total over this page
+				pageTotal = api
+					.column( i, { page: 'current'} )
+					.data()
+					.reduce( function (a, b) {return intVal(a) + intVal(b);}, 0 );
+	 
+				// Update footer
+				return pageTotal; // +' <br>( $'+ total +' total)');	
+				
+            };
+			$( api.column(3).footer() ).html(footer_cells(-4).formatMoney(2, ',', ' '));
+			$( api.column(4).footer() ).html(footer_cells(-3).formatMoney(2, ',', ' '));
+			$( api.column(5).footer() ).html(footer_cells(-2).formatMoney(2, ',', ' '));
+			$( api.column(6).footer() ).html(footer_cells(-1).formatMoney(2, ',', ' '));
+        },
+		"columnDefs": [
+            {
+                "targets": [ 0 ],
+				"width": "10%"
+            },
+			{
+                "targets": [ <?=($by_program)?> ],
+				"width": "5%"
+            },
+			{
+                "targets": [ <?=(1+$by_program)?> ],
+				"width": "20%"
+            },
+			{
+                "targets": [ -5 ],
+                "sortable": false,
+				"searchable": false
+            },
+			{
+                "targets": [ -1 ],
+                "sortable": false,
+				"visible": false,
+				"searchable": false
+            },
+			{
+                "targets": [ -2 ],
+                "sortable": false,
+				"visible": false,
+				"searchable": false
+            },
+			{
+                "targets": [ -3 ],
+                "sortable": false,
+				"visible": false,
+				"searchable": false
+            },
+			{
+                "targets": [ -4 ],
+                "sortable": false,
+				"visible": false,
+				"searchable": false
+            }
+        ]
+    } );
+} );
+</script>
+
+<script type="text/javascript" charset="utf-8">
+		$(function	()	{			
+			
+			var check_methode_payement_autre = $('#par_programme');
+			var checkMethodePayementAutreValue = check_methode_payement_autre.filter(':checked').val();
+			if (!checkMethodePayementAutreValue) {
+				$("#valeur_autre_financement").val('');
+				$('#valeur_autre_financement').attr('data-parsley-required', 'false');
+				$("#payement_autre").hide();
+			}else {
+				$("#payement_autre").show();
+				$('#valeur_autre_financement').attr('data-parsley-required', 'true');
+			}	
+			
+			
+			$('input#par_programme').change(function() {
+				var check_methode_payement_autre = $('#par_programme');
+				var checkMethodePayementAutreValue = check_methode_payement_autre.filter(':checked').val();
+				if (checkMethodePayementAutreValue) {
+					$("#payement_autre").show();
+					$('#valeur_autre_financement').attr('data-parsley-required', 'true');
+					$('#valeur_autre_financement').attr('enabled', 'true');
+					//$('#activite_identification').parsley();
+				}else {
+					$("#valeur_autre_financement").val('');
+					$('#valeur_autre_financement').attr('data-parsley-required', 'false');
+					$("#payement_autre").hide();
+				}
+			});
+		
+		});			
 </script>
         {% endjavascripts %}
 

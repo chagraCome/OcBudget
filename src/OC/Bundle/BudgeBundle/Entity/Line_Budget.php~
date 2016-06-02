@@ -23,13 +23,13 @@ class Line_Budget
    * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget", mappedBy="Line_Budget")
    */ 
     
-    /**
-     * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Program")
+     /**
+     * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Programe")
      *@ORM\JoinColumn(nullable=false)
       */
+    private $programe;
      private $budget_taged;
     private $budget;
-    private $program;
     private $consammation;
     /**
      * @var integer
@@ -311,29 +311,6 @@ class Line_Budget
     public function getConsammation()
     {
         return $this->consammation;
-    }
-
-    /**
-     * Set program
-     *
-     * @param \OC\Bundle\BudgeBundle\Entity\Program $program
-     * @return Line_Budget
-     */
-    public function setProgram(\OC\Bundle\BudgeBundle\Entity\Program $program)
-    {
-        $this->program = $program;
-
-        return $this;
-    }
-
-    /**
-     * Get program
-     *
-     * @return \OC\Bundle\BudgeBundle\Entity\Program 
-     */
-    public function getProgram()
-    {
-        return $this->program;
     }
 
     /**

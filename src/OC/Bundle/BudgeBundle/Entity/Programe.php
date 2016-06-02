@@ -5,17 +5,13 @@ namespace OC\Bundle\BudgeBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Program
+ * Programe
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="OC\Bundle\BudgeBundle\Entity\ProgramRepository")
+ * @ORM\Entity(repositoryClass="OC\Bundle\BudgeBundle\Entity\ProgrameRepository")
  */
-class Program
+class Programe
 {
-    /**
-     @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget",mappedBy="Program")
-     */
-    private $line_budget;
     /**
      * @var integer
      *
@@ -25,6 +21,12 @@ class Program
      */
     private $id;
 
+    
+    /**
+   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget", mappedBy="Programe")
+   */ 
+    private $line_budget;
+    
     /**
      * @var string
      *
@@ -61,7 +63,7 @@ class Program
      * Set labelProg
      *
      * @param string $labelProg
-     * @return Program
+     * @return Programe
      */
     public function setLabelProg($labelProg)
     {
@@ -84,7 +86,7 @@ class Program
      * Set code
      *
      * @param string $code
-     * @return Program
+     * @return Programe
      */
     public function setCode($code)
     {
@@ -107,7 +109,7 @@ class Program
      * Set head
      *
      * @param string $head
-     * @return Program
+     * @return Programe
      */
     public function setHead($head)
     {
@@ -130,14 +132,17 @@ class Program
      */
     public function __construct()
     {
-        $this->line_budget = new \Doctrine\Common\Collections\ArrayCollection();
+        parent::__construct();
     }
 
+  
+
     /**
-     * Add line_budget
+     * Add lineBudget
      *
      * @param \OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget
-     * @return Program
+     *
+     * @return Programe
      */
     public function addLineBudget(\OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget)
     {
@@ -147,7 +152,7 @@ class Program
     }
 
     /**
-     * Remove line_budget
+     * Remove lineBudget
      *
      * @param \OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget
      */
@@ -157,9 +162,9 @@ class Program
     }
 
     /**
-     * Get line_budget
+     * Get lineBudget
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getLineBudget()
     {
