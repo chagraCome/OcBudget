@@ -1,0 +1,27 @@
+Tag:
+    type: entity
+    table: tag
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        labelTag:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: label_tag
+        head:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

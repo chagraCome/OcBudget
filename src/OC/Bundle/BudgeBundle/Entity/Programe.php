@@ -1,7 +1,7 @@
 <?php
 
 namespace OC\Bundle\BudgeBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -30,7 +30,7 @@ class Programe
     /**
      * @var string
      *
-     * @ORM\Column(name="label_prog", type="string", length=50)
+     * @ORM\Column(name="labelProg", type="string", length=50)
      */
     private $labelProg;
 
@@ -40,14 +40,12 @@ class Programe
      * @ORM\Column(name="code", type="string", length=2)
      */
     private $code;
-
-    /**
+     /**
      * @var string
      *
      * @ORM\Column(name="head", type="string", length=2)
      */
     private $head;
-
 
     /**
      * Get id

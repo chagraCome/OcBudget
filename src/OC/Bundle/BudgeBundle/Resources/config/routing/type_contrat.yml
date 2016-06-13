@@ -1,0 +1,30 @@
+type_contrat:
+    path:     /
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:index" }
+
+type_contrat_show:
+    path:     /{id}/show
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:show" }
+
+type_contrat_new:
+    path:     /new
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:new" }
+
+type_contrat_create:
+    path:     /create
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:create" }
+    methods:  POST
+
+type_contrat_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:edit" }
+
+type_contrat_update:
+    path:     /{id}/update
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:update" }
+    methods:  [POST, PUT]
+
+type_contrat_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OCBudgeBundle:Type_Contrat:delete" }
+    methods:  [POST, DELETE]

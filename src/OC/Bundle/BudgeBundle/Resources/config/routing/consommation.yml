@@ -1,0 +1,30 @@
+consommation:
+    path:     /
+    defaults: { _controller: "OCBudgeBundle:Consommation:index" }
+
+consommation_show:
+    path:     /{id}/show
+    defaults: { _controller: "OCBudgeBundle:Consommation:show" }
+
+consommation_new:
+    path:     /new
+    defaults: { _controller: "OCBudgeBundle:Consommation:new" }
+
+consommation_create:
+    path:     /create
+    defaults: { _controller: "OCBudgeBundle:Consommation:create" }
+    methods:  POST
+
+consommation_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OCBudgeBundle:Consommation:edit" }
+
+consommation_update:
+    path:     /{id}/update
+    defaults: { _controller: "OCBudgeBundle:Consommation:update" }
+    methods:  [POST, PUT]
+
+consommation_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OCBudgeBundle:Consommation:delete" }
+    methods:  [POST, DELETE]

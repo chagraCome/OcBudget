@@ -1,0 +1,60 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+<div id="wrapper">
+
+    <header class="navbar" role="banner">
+
+    <div class="container">
+     <nav class="collapse navbar-collapse" role="navigation">
+			<div class="navbar-header navbar-title">
+					البرمجة السنويّة للنفقات
+			</div>
+			
+			<div class="navbar-header navbar-title">
+				PAD&nbsp;&nbsp;&nbsp;<sup>V<sup>1.0<sup></sup>
+			</div>
+			{% include "::toolbar.html.twig" %}
+		</nav>
+	</div> <!-- /.container -->
+  </header>
+{% include "::menu_header.html.twig" %}
+    <h1>Ministere list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Appel_offre</th>
+                <th>Nomministere</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('ministere_show', { 'id': entity.appel_offre }) }}">{{ entity.appeloffre }}</a></td>
+                <td>{{ entity.nomMinistere }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('ministere_show', { 'id': entity.appel_offre }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('ministere_edit', { 'id': entity.appel_offre }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('ministere_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

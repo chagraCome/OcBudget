@@ -1,0 +1,21 @@
+Ministere:
+    type: entity
+    table: ministere
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomMinistere:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: nom_ministere
+    lifecycleCallbacks: {  }

@@ -1,0 +1,30 @@
+yes:
+    path:     /
+    defaults: { _controller: "OCBudgeBundle:Programe:index" }
+
+yes_show:
+    path:     /{id}/show
+    defaults: { _controller: "OCBudgeBundle:Programe:show" }
+
+yes_new:
+    path:     /new
+    defaults: { _controller: "OCBudgeBundle:Programe:new" }
+
+yes_create:
+    path:     /create
+    defaults: { _controller: "OCBudgeBundle:Programe:create" }
+    methods:  POST
+
+yes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "OCBudgeBundle:Programe:edit" }
+
+yes_update:
+    path:     /{id}/update
+    defaults: { _controller: "OCBudgeBundle:Programe:update" }
+    methods:  [POST, PUT]
+
+yes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "OCBudgeBundle:Programe:delete" }
+    methods:  [POST, DELETE]

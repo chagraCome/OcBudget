@@ -1,3 +1,39 @@
+oc_budge_budget_taged:
+    resource: "@OCBudgeBundle/Resources/config/routing/budget_taged.yml"
+    prefix:   /budget_taged
+
+oc_budge_ministere:
+    resource: "@OCBudgeBundle/Resources/config/routing/ministere.yml"
+    prefix:   /ministere
+
+oc_budge_contrat:
+    resource: "@OCBudgeBundle/Resources/config/routing/contrat.yml"
+    prefix:   /contrat
+
+oc_budge_type_contrat:
+    resource: "@OCBudgeBundle/Resources/config/routing/type_contrat.yml"
+    prefix:   /type_contrat
+
+oc_budge_ordonnancement:
+    resource: "@OCBudgeBundle/Resources/config/routing/ordonnancement.yml"
+    prefix:   /ordonnancement
+
+oc_budge_consommation:
+    resource: "@OCBudgeBundle/Resources/config/routing/consommation.yml"
+    prefix:   /consommation
+
+oc_budge_groupement:
+    resource: "@OCBudgeBundle/Resources/config/routing/groupement.yml"
+    prefix:   /groupement
+
+oc_budge_classe:
+    resource: "@OCBudgeBundle/Resources/config/routing/classe.yml"
+    prefix:   /classe
+
+oc_budge_yes:
+    resource: "@OCBudgeBundle/Resources/config/routing/programe.yml"
+    prefix:   /yes
+
 oc_budge_line_budget:
     resource: "@OCBudgeBundle/Resources/config/routing/line_budget.yml"
     prefix:   /line_budget
@@ -23,3 +59,12 @@ oc_budge_budget:
 oc_show_budget:
     path:     /show
     defaults: { _controller: OCBudgeBundle:Budget:show }
+oc_show_classe:
+    path:     /classe
+    defaults: { _controller: OCBudgeBundle:Classe:index }
+oc_show_programe:
+    path:     /yes
+    defaults: { _controller: OCBudgeBundle:Programe:index }
+oc_show_budget_taged:
+    path:     /budget_taged
+    defaults: { _controller: OCBudgeBundle:Budget_taged:index }

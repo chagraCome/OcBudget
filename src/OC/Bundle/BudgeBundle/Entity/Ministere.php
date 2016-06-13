@@ -1,7 +1,7 @@
 <?php
 
 namespace OC\Bundle\BudgeBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Ministere
 {
     /**
-   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Appel_offre", mappedBy="Ministere")
+   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Appel_offre", mappedBy="Ministeres")
    */ 
     /**
      * @var integer

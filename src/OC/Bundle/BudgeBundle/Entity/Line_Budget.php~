@@ -358,4 +358,28 @@ class Line_Budget
     {
         return $this->budget_taged;
     }
+
+    /**
+     * Set programe
+     *
+     * @param \OC\Bundle\BudgeBundle\Entity\Programe $programe
+     *
+     * @return Line_Budget
+     */
+    public function setPrograme(\OC\Bundle\BudgeBundle\Entity\Programe $programe)
+    {
+        $this->programe = $programe;
+
+        return $this;
+    }
+
+    /**
+     * Get programe
+     *
+     * @return \OC\Bundle\BudgeBundle\Entity\Programe
+     */
+    public function getPrograme()
+    {
+        return $this->programe;
+    }
 }

@@ -1,0 +1,104 @@
+BudgetTaged:
+    type: entity
+    table: budget_taged
+    indexes:
+        IDX_3D3653841823061F:
+            columns:
+                - contrat_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        flagBudget:
+            type: string
+            nullable: false
+            length: 1
+            options:
+                fixed: false
+            column: flag_budget
+        tag1:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag2:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag3:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag4:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag5:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag6:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag7:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag8:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag9:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        tag10:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        dateMin:
+            type: datetime
+            nullable: false
+            column: date_min
+        dateMax:
+            type: datetime
+            nullable: false
+            column: date_max
+    manyToOne:
+        contrat:
+            targetEntity: LineBudget
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                contrat_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

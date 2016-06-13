@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+<div id="wrapper">
+
+    <header class="navbar" role="banner">
+
+    <div class="container">
+     <nav class="collapse navbar-collapse" role="navigation">
+			<div class="navbar-header navbar-title">
+					البرمجة السنويّة للنفقات
+			</div>
+			
+			<div class="navbar-header navbar-title">
+				PAD&nbsp;&nbsp;&nbsp;<sup>V<sup>1.0<sup></sup>
+			</div>
+			{% include "::toolbar.html.twig" %}
+		</nav>
+	</div> <!-- /.container -->
+  </header>
+{% include "::menu_header.html.twig" %}
+    <h1>Programe list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Labelprog</th>
+                <th>Code</th>
+                <th>Head</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('yes_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.labelProg }}</td>
+                <td>{{ entity.code }}</td>
+                <td>{{ entity.head }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('yes_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('yes_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('yes_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

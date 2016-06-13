@@ -21,23 +21,35 @@
 
           	<ul class="dropdown-menu " role="menu">
               <li>
-                <a href="index.php">
+                <a href="{{path('oc_show_classe')}}">
                 <i class="fa fa-dashboard dropdown-icon "></i>
-				Analytics Dashboard
+				إضافة فصل
                 </a>
               </li>
 
               <li>
-                <a href="dashboard-2.html">
+                <a href="{{ path('ministere_new') }}">
                 <i class="fa fa-dashboard dropdown-icon "></i>
-				Sidebar Dashboard
+				إضافة وزارة
                 </a>
               </li>
 
               <li>
-                <a href="dashboard-3.html">
+                <a href="{{ path('yes') }}">
                 <i class="fa fa-dashboard dropdown-icon "></i>
-				Reports Dashboard
+				إضافة برنامج  
+                </a>
+              </li>
+              <li>
+                <a href="{{ path('contrat') }}">
+                <i class="fa fa-dashboard dropdown-icon "></i>
+		       العقود                      
+                </a>
+              </li>
+ <li>
+                <a href="{{ path('type_contrat') }}">
+                <i class="fa fa-dashboard dropdown-icon "></i>
+                             انواع العقود                                   
                 </a>
               </li>
           	</ul>

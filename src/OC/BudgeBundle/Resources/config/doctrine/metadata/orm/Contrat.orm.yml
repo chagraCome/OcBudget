@@ -1,0 +1,49 @@
+Contrat:
+    type: entity
+    table: contrat
+    indexes:
+        IDX_60349993DE51ED5F:
+            columns:
+                - budget_taged_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        labelContrat:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+            column: label_contrat
+        dateDebContrat:
+            type: datetime
+            nullable: false
+            column: date_deb_contrat
+        dateFinContrat:
+            type: datetime
+            nullable: false
+            column: date_fin_contrat
+        montant:
+            type: float
+            nullable: false
+            precision: 10
+            scale: 0
+    manyToOne:
+        budgetTaged:
+            targetEntity: BudgetTaged
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                budget_taged_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
