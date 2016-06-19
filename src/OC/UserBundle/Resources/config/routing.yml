@@ -21,7 +21,7 @@ fos_user_profile:
     prefix: /profile
 
 fos_user_registration:
-    resource: "@OCUserBundle/Resources/config/routing/registration.yml"
+    resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
     prefix: /register
 fos_user_resetting:
     resource: "@FOSUserBundle/Resources/config/routing/resetting.xml"

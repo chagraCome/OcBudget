@@ -1,37 +1,21 @@
 <?php
 
-/*
- * This file is part of the FOSUserBundle package.
- *
- * (c) FriendsOfSymfony <http://friendsofsymfony.github.com/>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace OC\UserBundle\Controller;
 
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use FOS\UserBundle\Model\UserInterface;
 
-/**
- * Controller managing the registration
- *
- * @author Thibault Duplessis <thibault.duplessis@gmail.com>
- * @author Christophe Coevoet <stof@notk.org>
- */
-class RegistrationController extends Controller
-{
-    public function registerAction(Request $request)
-    {
+class RegistrationController extends BaseController {
+
+    public function registerAction(Request $request) {
         /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
         $formFactory = $this->get('fos_user.registration.form.factory');
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
@@ -71,33 +55,32 @@ class RegistrationController extends Controller
         }
 
         return $this->render('OCUserBundle:Registration:register.html.twig', array(
-            'form' => $form->createView(),
+                    'form' => $form->createView(),
         ));
     }
 
     /**
      * Tell the user to check his email provider
      */
-    public function checkEmailAction()
-    {
+    public function checkEmailAction() {
         $email = $this->get('session')->get('fos_user_send_confirmation_email/email');
         $this->get('session')->remove('fos_user_send_confirmation_email/email');
         $user = $this->get('fos_user.user_manager')->findUserByEmail($email);
 
         if (null === $user) {
-            throw new NotFoundHttpException(sprintf('The user with email "%s" does not exist', $email));
+            return $this->render('OCUserBundle:Registration:checkEmail.html.twig');
+//            return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
 
         return $this->render('OCUserBundle:Registration:checkEmail.html.twig', array(
-            'user' => $user,
+                    'user' => $user,
         ));
     }
 
     /**
      * Receive the confirmation token from user email provider, login the user
      */
-    public function confirmAction(Request $request, $token)
-    {
+    public function confirmAction(Request $request, $token) {
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
         $userManager = $this->get('fos_user.user_manager');
 
@@ -131,21 +114,19 @@ class RegistrationController extends Controller
     /**
      * Tell the user his account is now confirmed
      */
-    public function confirmedAction()
-    {
+    public function confirmedAction() {
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
         return $this->render('OCUserBundle:Registration:confirmed.html.twig', array(
-            'user' => $user,
-            'targetUrl' => $this->getTargetUrlFromSession(),
+                    'user' => $user,
+                    'targetUrl' => $this->getTargetUrlFromSession(),
         ));
     }
 
-    private function getTargetUrlFromSession()
-    {
+    private function getTargetUrlFromSession() {
         // Set the SecurityContext for Symfony <2.6
         if (interface_exists('Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface')) {
             $tokenStorage = $this->get('security.token_storage');
@@ -159,4 +140,5 @@ class RegistrationController extends Controller
             return $this->get('session')->get($key);
         }
     }
+
 }

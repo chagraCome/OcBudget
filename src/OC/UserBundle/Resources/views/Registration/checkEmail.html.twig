@@ -1,7 +1,15 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "::base.html.twig" %}
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block fos_user_content %}
-    <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
-{% endblock fos_user_content %}
+{% block body %}
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading block-confirme">
+            <div class="panel-title text-center main-center">
+                <p>{{ 'registration.check_email'|trans({'%email%': user.email}) }}</p>
+            </div>
+        </div> 
+    </div>
+</div>
+{% endblock body %}

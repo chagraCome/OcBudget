@@ -59,8 +59,6 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        mapping_types:
-            point: string
         # if using pdo_sqlite as your database driver:
         #   1. add the path in parameters.yml
         #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
@@ -90,5 +88,7 @@ fos_user:
     registration:
         form:
             type: custom_user_registration
+        confirmation:
+            enabled: true
             # if you are using Symfony < 2.8 you should use the type name instead
             # type: app_user_registration
