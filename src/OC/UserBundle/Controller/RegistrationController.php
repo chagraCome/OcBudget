@@ -68,8 +68,7 @@ class RegistrationController extends BaseController {
         $user = $this->get('fos_user.user_manager')->findUserByEmail($email);
 
         if (null === $user) {
-            return $this->render('OCUserBundle:Registration:checkEmail.html.twig');
-//            return $this->redirect($this->generateUrl('fos_user_security_login'));
+            return $this->redirect($this->generateUrl('fos_user_security_login'));
         }
 
         return $this->render('OCUserBundle:Registration:checkEmail.html.twig', array(
