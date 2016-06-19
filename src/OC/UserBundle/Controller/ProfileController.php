@@ -25,7 +25,7 @@ class ProfileController extends BaseController
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
-        return $this->render('FOSUserBundle:Profile:show.html.twig', array(
+        return $this->render('OCUserBundle:Profile:show.html.twig', array(
             'user' => $user
         ));
     }
