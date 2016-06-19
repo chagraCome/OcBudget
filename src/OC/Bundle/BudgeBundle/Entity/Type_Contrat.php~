@@ -101,7 +101,6 @@ class Type_Contrat
     {
         $this->contrat->removeElement($contrat);
     }
-  
 
     /**
      * Get contrat
@@ -111,29 +110,5 @@ class Type_Contrat
     public function getContrat()
     {
         return $this->contrat;
-    }
-
-    /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Type_Contrat
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
     }
 }

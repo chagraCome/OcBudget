@@ -21,7 +21,7 @@
 {% include "::menu_header.html.twig" %}
   <div class="portlet-header" style="float:right;">
               <h4 class="portlet-title" style="float:left;">
-    <h1>Classe list</h1>
+    <h1>قائمة الفصول </h1>
 </div>
 <div class="portlet portlet-default">
             <div class="portlet-body" style="float:right;">
@@ -45,17 +45,16 @@
            style="float:left;">
             <thead>
               <tr>
-                <th data-filterable="text">الفصل</th>
-               
+                
+               <th data-sortable="true" >     </th>
                 <th data-sortable="true"> بيان الفصل</th>
-                <th data-sortable="true" >     </th>
+                <th data-filterable="text">الفصل</th>
               </tr>
             </thead>
             <tbody >
     {% for entity in entities %}
             <tr>
-			    <td>{{ entity.articleClasse }}</td>
-                <td>{{ entity.labelClass }}</td>
+			    
                
                 <td>
                 <ul>
@@ -67,6 +66,9 @@
                     </li>
                 </ul>
                 </td>
+   <td>{{ entity.labelClass }}</td>
+   <td>{{ entity.articleClasse }}</td>
+               
             </tr>
         {% endfor %}
           </table>

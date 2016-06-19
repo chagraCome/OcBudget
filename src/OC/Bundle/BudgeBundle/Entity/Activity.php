@@ -280,4 +280,3 @@ class Activity
         return $this->typerealisation;
     }
 }
-

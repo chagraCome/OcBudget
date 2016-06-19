@@ -17,12 +17,13 @@ class Contrat
      *@ORM\JoinColumn(nullable=false)
      
      */
+    private $type_contrat;
     /**
      * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget_taged")
      *@ORM\JoinColumn(nullable=false)
      */
     private $budget_taged;
-    private $type_contrat;
+    
     /**
      * @var integer
      *
@@ -186,5 +187,28 @@ class Contrat
     public function getTypeContrat()
     {
         return $this->type_contrat;
+    }
+
+    /**
+     * Set budget_taged
+     *
+     * @param \OC\Bundle\BudgeBundle\Entity\Budget_taged $budgetTaged
+     * @return Contrat
+     */
+    public function setBudgetTaged(\OC\Bundle\BudgeBundle\Entity\Budget_taged $budgetTaged)
+    {
+        $this->budget_taged = $budgetTaged;
+
+        return $this;
+    }
+
+    /**
+     * Get budget_taged
+     *
+     * @return \OC\Bundle\BudgeBundle\Entity\Budget_taged 
+     */
+    public function getBudgetTaged()
+    {
+        return $this->budget_taged;
     }
 }

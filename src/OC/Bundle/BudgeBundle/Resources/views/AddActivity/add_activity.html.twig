@@ -166,25 +166,47 @@
 
 					<div class="portlet-body">
 					  <form id="activite_identification" action="http://dev.industrie.gov.tn/pad/templates/admin/form-plugins.html" class="form parsley-form">
+{#{  action et method pour le formulaire}#}
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'form account-form'}}) }}
 
-						<div class="form-group">
-						  <label class="control-label" for="name_activity">عنوان النشاط / المشروع</label>
-						  <input type="text" id="name_activity" name="name_activity" class="form-control" data-parsley-required="true">
-						</div> <!-- /.form-group -->
-						
-						<div class="form-group">
-						  <label class="control-label" for="desc_activity">وصف النشاط / المشروع</label>
-						  <textarea id="desc_activity" name="desc_activity" class="form-control" data-parsley-trigger="keyup" data-parsley-required="true" data-parsley-required-message="Come on! You need to enter at least a 20 character comment.." data-parsley-validation-threshold="10" data-parsley-id="28"></textarea>
-						</div> <!-- /.form-group -->
-						
-						
-						<div class="form-group">
-						  <label class="control-label" for="budget_activity">الإعتمادات المخصصّة من ميزانيّة الدولة</label>
-						  <input type="text" id="budget_activity" name="budget_activity" class="form-control col-sm-6" data-parsley-required="true">(أ.د)
-						</div> 
-						
-						
-						<div class="form-group">
+<div class="form-group">
+{{ form_label(form.titre,'عنوان النشاط / المشروع',{'label_attr': {'class': 'control-label'}}) }}    
+{{ form_widget(form.titre,{'attr': {'class': 'form-control'}}) }}
+{{ form_errors(form.titre) }}
+</div>
+<div class="form-group">
+{{ form_label(form.description,'وصف النشاط / المشروع',{'label_attr': {'class': 'control-label'}}) }}    
+{{ form_widget(form.description,{'attr': {'class': 'form-control'}}) }}
+{{ form_errors(form.description) }}
+</div>
+<div class="form-group">
+{{ form_label(form.credit,'الإعتمادات المخصصّة من ميزانيّة الدولة',{'label_attr': {'class': 'control-label'}}) }}    
+{{ form_widget(form.credit,{'attr': {'class': 'form-control'}}) }}
+{{ form_errors(form.credit) }}
+</div>
+<div class="form-group">
+{{ form_label(form.outressource,'هل تمّ رصد موارد من خارج ميزانيّة الدولة',{'label_attr': {'class': 'control-label'}}) }}    
+{{ form_widget(form.outressource,{'attr': {'class': 'ui-check'}}) }}
+{{ form_errors(form.outressource) }}
+<div class="row">
+<div class="col-sm-6 col-md-6">
+<div class="form-group">
+{{ form_label(form.source,'و مصادرها :',{'label_attr': {'class': 'control-label'}}) }}    
+{{ form_widget(form.source,{'attr': {'class': 'form-control'}}) }}
+{{ form_errors(form.source) }}
+</div>
+</div>	
+<div class="col-sm-3 col-md-3">
+<div class="form-group " >
+{{ form_label(form.prix,'قيمتها :',{'label_attr': {'class': 'control-label'}}) }}    
+{{ form_widget(form.prix,{'attr': {'class': 'form-control'}}) }}
+{{ form_errors(form.prix) }}
+</div>
+</div>
+</div>
+</div>
+                                              
+	                                          {#      <div class="form-group">
 							<br />
 							<label class="control-label">هل تمّ رصد موارد من خارج ميزانيّة الدولة</label>
 							<input value="-1" type="checkbox" id="autre_financement" name="autre_financement" class="ui-check" >							
@@ -204,65 +226,29 @@
 								</div>
 							</div>
 						
-						</div> <!-- /.form-group -->
-						
-						
-						
-						<div class="form-group">
-						  <label class="control-label">طبيعة المشروع</label>
+						</div> <!-- /.form-group -->	#}				
+<div class="form-group">
+{{ form_label(form.nature,'طبيعة المشروع',{'label_attr': {'class': 'control-label'}}) }}    
+</BR>
+{{ form_widget(form.nature,{'attr': {'class': 'ui-check'}})}} 
+{{ form_widget(form.nature,{'attr': {'class': 'ui-check'}})}}
+ </div>
 
-						  <div class="radio">
-							<label>متواصل</label>
-							<input type="radio" name="radio-12" class="ui-check"> 
-						  </div> <!-- /.radio -->
-						  <div class="radio">
-							<label>جديد</label>
-							<input type="radio" name="radio-12" class="ui-check" data-parsley-required="true">
-						  </div> <!-- /.radio -->						  
-						  
-						</div> <!-- /.form-group -->
-						
-						<div class="form-group">
-						  <label class="control-label">طريقة الإنجاز</label>
+<div class="form-group">
+{{ form_label(form.typerealisation,'طريقة الإنجاز',{'label_attr': {'class': 'control-label'}}) }}    
+</BR>
+{{ form_widget(form.typerealisation,{'attr': {'class': 'ui-check'}})}} 
+</BR>
+{{ form_widget(form.typerealisation,{'attr': {'class': 'ui-check'}})}}
+ </div>
+					 
+{{ form_rest(form) }}       
+ <div class="form-group" >
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
 
-						  <div class="radio row">
-							<label>في إطار الصفقات العموميّة</label>
-							<input type="radio" name="radio_marche" id="radio_cadre_marche" class="ui-check"> 
-							
-							<div id="cadre_marche" class="col-sm-3 col-md-3 col-md-offset-9">									
-										<label for="numero_marche"> العدد  :</label>
-										<input type="text" id="numero_marche" name="numero_marche" class="form-control">
-							</div>
-						  </div> <!-- /.radio -->
-						  
-						  <div class="radio row">
-							<label>خارج  إطار الصفقات العموميّة</label>
-							<input type="radio"  name="radio_marche" id="radio_cadre_horsmarche"  class="ui-check" data-parsley-required="true">
-						    
-							<div id="cadre_horsmarche" class="col-sm-3 col-md-3 col-md-offset-9">
-										<label for="numero_horsmarche"> العدد  :</label>
-										<input type="text" id="numero_horsmarche" name="numero_horsmarche" class="form-control">
-							</div>
-						  </div> <!-- /.radio -->
-						  
-						  <div class="radio row">
-							<label>غيرها </label>
-							<input type="radio" name="radio_marche" id="radio_cadre_autremarche" class="ui-check"> 
-							
-							<div id="cadre_autre_marche" class="col-sm-3 col-md-6 col-md-offset-6">
-										<label for="autre_que_marche"> حدّد طريقة الإنجاز  :</label>
-										<input type="text" id="autre_que_marche" name="autre_que_marche" class="form-control">
-							</div>
-						  </div> <!-- /.radio -->	
-						</div> <!-- /.form-group -->
-
-						<div class="form-group">
-						  <button type="submit" class="btn btn-secondary">المصادقة</button>
-						</div> <!-- /.form-group -->
-
-					  </form>
-					 </div> <!-- /.portlet-body -->
-
+{{ form_end(form) }}
+          </div> <!-- /.portlet-body -->
           </div> <!-- /.portlet --> 
 		  
 		  </div> <!-- /.tab-pane -->

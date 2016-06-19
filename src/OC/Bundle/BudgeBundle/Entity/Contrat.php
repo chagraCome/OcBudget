@@ -17,12 +17,13 @@ class Contrat
      *@ORM\JoinColumn(nullable=false)
      
      */
+    private $type_contrat;
     /**
      * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget_taged")
      *@ORM\JoinColumn(nullable=false)
      */
     private $budget_taged;
-    private $type_contrat;
+    
     /**
      * @var integer
      *
@@ -210,4 +211,10 @@ class Contrat
     {
         return $this->budget_taged;
     }
+    /**
+     * @var \OC\Bundle\BudgeBundle\Entity\BudgetTaged
+     */
+    private $budgetTaged;
+
+
 }
