@@ -7,13 +7,13 @@ use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Model\UserInterface;
-use FOS\UserBundle\Controller\RegistrationController as BaseController;
+use FOS\UserBundle\Controller\ProfileController as BaseEditController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 
-class ProfileController extends BaseController
+class ProfileController extends BaseEditController
 {
     /**
      * Show the user
@@ -64,7 +64,7 @@ class ProfileController extends BaseController
 
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
-
+            $user->uploadProfilePicture();
             $userManager->updateUser($user);
 
             if (null === $response = $event->getResponse()) {
@@ -77,8 +77,9 @@ class ProfileController extends BaseController
             return $response;
         }
 
-        return $this->render('FOSUserBundle:Profile:edit.html.twig', array(
-            'form' => $form->createView()
+        return $this->render('OCUserBundle:Profile:edit.html.twig', array(
+            'form' => $form->createView(),
+            'user' => $user
         ));
     }
 }

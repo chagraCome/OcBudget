@@ -12,3 +12,9 @@ services:
         arguments: [%fos_user.model.user.class%]
         tags:
             - { name: form.type, alias: custom_user_registration }   
+            
+    custom_user_edit_profile:
+        class: OC\UserBundle\Form\ProfileFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: custom_user_edit_profile } 

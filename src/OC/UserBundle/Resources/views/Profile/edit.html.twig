@@ -1,5 +1,21 @@
-{% extends "FOSUserBundle::layout.html.twig" %}
+{% extends "::base.html.twig" %}
 
-{% block fos_user_content %}
-{% include "FOSUserBundle:Profile:edit_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block body %}
+<div id="wrapper">
+    <header class="navbar" role="banner">
+        <div class="container">
+            <nav class="collapse navbar-collapse" role="navigation">
+                <div class="navbar-header navbar-title">
+                    البرمجة السنويّة للنفقات
+                </div>
+                <div class="navbar-header navbar-title">
+                    PAD&nbsp;&nbsp;&nbsp;<sup>V<sup>1.0<sup></sup>
+                            </div>
+			{% include "::toolbar.html.twig" %}
+                            </nav>
+                            </div> <!-- /.container -->
+                            </header>
+{% include "::menu_header.html.twig" %}
+{% include "OCUserBundle:Profile:edit_content.html.twig" %}
+                            </div> <!-- /#wrapper -->
+{% endblock body %}

@@ -90,5 +90,9 @@ fos_user:
             type: custom_user_registration
         confirmation:
             enabled: true
+            
+    profile:
+        form:
+            type: custom_user_edit_profile        
             # if you are using Symfony < 2.8 you should use the type name instead
             # type: app_user_registration
