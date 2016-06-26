@@ -18,7 +18,7 @@
                             <div class="col-md-7">
                                 <div class="fileinput fileinput-new" style="width: 50%;" data-provides="fileinput">
                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="min-width: 125px; min-height: 125px;">
-                                    {%if user and user.checkExisteFile == 0 %}
+                                    {%if user and user.checkExisteFile == 1 %}
                                         <img src="{{ asset(user.webPathImage) }}" alt="Avatar">
                                     {% else %}
                                         <img src="{{ asset('img/default.png') }}" alt="">
@@ -63,11 +63,11 @@
                             <div class="col-md-7 col-md-push-3">
                                 <input type="submit" class="btn btn-primary" value="Save Changes">
                                 &nbsp;
-                                <button type="reset" class="btn btn-default">Cancel</button>
+                                <button type="{{path('fos_user_profile_show')}}" class="btn btn-default">Cancel</button>
                             </div> <!-- /.col -->
                         </div> <!-- /.form-group -->
 
-{{ form_end(form) }}
+                        {{ form_end(form) }}
                     </div>
                 </div>
             </div>
