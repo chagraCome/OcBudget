@@ -16,12 +16,15 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Avatar</label>
                             <div class="col-md-7">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    {%if user.checkExisteFile%}
+                                <div class="fileinput fileinput-new" style="width: 50%;" data-provides="fileinput">
                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="min-width: 125px; min-height: 125px;">
+                                    {%if user and user.checkExisteFile == 0 %}
                                         <img src="{{ asset(user.webPathImage) }}" alt="Avatar">
+                                    {% else %}
+                                        <img src="{{ asset('img/default.png') }}" alt="">
+
+                                    {% endif %}
                                     </div>
-                                    {% endif%}
                                     <div>
                                         <span class="btn btn-default btn-file">
                                             {{ form_widget(form.file) }}

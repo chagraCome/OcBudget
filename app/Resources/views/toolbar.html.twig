@@ -1,173 +1,176 @@
 
-			<div class="pull-left">
-			<ul class="nav navbar-nav navbar-right">  
+<div class="pull-left">
+    <ul class="nav navbar-nav navbar-right">  
 
-			  <li class="dropdown navbar-profile">
-				<a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-				  <img src="{{ asset(user.webPathImage) }}" class="navbar-profile-avatar" alt="">
-				  <span class="visible-xs-inline">@peterlandt &nbsp;</span>
-				  <i class="fa fa-caret-down"></i>
-				</a>
+        <li class="dropdown navbar-profile">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+                                    {%if user and user.checkExisteFile == 0 %}
+                <img src="{{ asset(user.webPathImage) }}" class="navbar-profile-avatar" alt="">
+				 {% else %}
+                <img src="{{ asset('img/default.png') }}" class="navbar-profile-avatar" alt="">
+                                  {% endif %}
+                <span class="visible-xs-inline">@peterlandt &nbsp;</span>
+                <i class="fa fa-caret-down"></i>
+            </a>
 
-				<ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu" role="menu">
 
-				  <li>
-					<a href="{{path('fos_user_profile_show')}}">
-					  <i class="fa fa-user"></i> 
-					  &nbsp;&nbsp;My Profile
-					</a>
-				  </li>
+                <li>
+                    <a href="{{path('fos_user_profile_show')}}">
+                        <i class="fa fa-user"></i> 
+                        &nbsp;&nbsp;My Profile
+                    </a>
+                </li>
 
-				  <li>
-					<a href="page-pricing-plans.html">
-					  <i class="fa fa-dollar"></i> 
-					  &nbsp;&nbsp;Plans & Billing
-					</a>
-				  </li>
+                <li>
+                    <a href="page-pricing-plans.html">
+                        <i class="fa fa-dollar"></i> 
+                        &nbsp;&nbsp;Plans & Billing
+                    </a>
+                </li>
 
-				  <li>
-					<a href="{{path('fos_user_profile_edit')}}">
-					  <i class="fa fa-cogs"></i> 
-					  &nbsp;&nbsp;Settings
-					</a>
-				  </li>
+                <li>
+                    <a href="{{path('fos_user_profile_edit')}}">
+                        <i class="fa fa-cogs"></i> 
+                        &nbsp;&nbsp;Settings
+                    </a>
+                </li>
 
-				  <li class="divider"></li>
+                <li class="divider"></li>
 
-				  <li>
-					<a href="{{path('fos_user_security_logout')}}">
-					  <i class="fa fa-sign-out"></i> 
-					  &nbsp;&nbsp;Logout
-					</a>
-				  </li>
+                <li>
+                    <a href="{{path('fos_user_security_logout')}}">
+                        <i class="fa fa-sign-out"></i> 
+                        &nbsp;&nbsp;Logout
+                    </a>
+                </li>
 
-				</ul>
+            </ul>
 
-			  </li>
-			  
-			  <li class="dropdown navbar-notification">
+        </li>
 
-				<a href="page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
-				  <i class="fa fa-bell navbar-notification-icon"></i>
-				  <span class="visible-xs-inline">&nbsp;Notifications</span>
-				  <b class="badge badge-primary">3</b>
-				</a>
+        <li class="dropdown navbar-notification">
 
-				<div class="dropdown-menu">
+            <a href="page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-bell navbar-notification-icon"></i>
+                <span class="visible-xs-inline">&nbsp;Notifications</span>
+                <b class="badge badge-primary">3</b>
+            </a>
 
-				  <div class="dropdown-header">&nbsp;Notifications</div>
+            <div class="dropdown-menu">
 
-				  <div class="notification-list">
+                <div class="dropdown-header">&nbsp;Notifications</div>
 
-					<a href="page-notifications.html" class="notification">
-					  <span class="notification-icon"><i class="fa fa-cloud-upload text-primary"></i></span>
-					  <span class="notification-title">Notification Title</span>
-					  <span class="notification-description">Praesent dictum nisl non est sagittis luctus.</span>
-					  <span class="notification-time">20 minutes ago</span>
-					</a> <!-- / .notification -->
+                <div class="notification-list">
 
-					<a href="page-notifications.html" class="notification">
-					  <span class="notification-icon"><i class="fa fa-ban text-secondary"></i></span>
-					  <span class="notification-title">Notification Title</span>
-					  <span class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
-					  <span class="notification-time">20 minutes ago</span>
-					</a> <!-- / .notification -->
+                    <a href="page-notifications.html" class="notification">
+                        <span class="notification-icon"><i class="fa fa-cloud-upload text-primary"></i></span>
+                        <span class="notification-title">Notification Title</span>
+                        <span class="notification-description">Praesent dictum nisl non est sagittis luctus.</span>
+                        <span class="notification-time">20 minutes ago</span>
+                    </a> <!-- / .notification -->
 
-					<a href="page-notifications.html" class="notification">
-					  <span class="notification-icon"><i class="fa fa-warning text-tertiary"></i></span>
-					  <span class="notification-title">Storage Space Almost Full!</span>
-					  <span class="notification-description">Praesent dictum nisl non est sagittis luctus.</span>
-					  <span class="notification-time">20 minutes ago</span>
-					</a> <!-- / .notification -->
+                    <a href="page-notifications.html" class="notification">
+                        <span class="notification-icon"><i class="fa fa-ban text-secondary"></i></span>
+                        <span class="notification-title">Notification Title</span>
+                        <span class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+                        <span class="notification-time">20 minutes ago</span>
+                    </a> <!-- / .notification -->
 
-					<a href="page-notifications.html" class="notification">
-					  <span class="notification-icon"><i class="fa fa-ban text-danger"></i></span>
-					  <span class="notification-title">Sync Error</span>
-					  <span class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
-					  <span class="notification-time">20 minutes ago</span>
-					</a> <!-- / .notification -->
+                    <a href="page-notifications.html" class="notification">
+                        <span class="notification-icon"><i class="fa fa-warning text-tertiary"></i></span>
+                        <span class="notification-title">Storage Space Almost Full!</span>
+                        <span class="notification-description">Praesent dictum nisl non est sagittis luctus.</span>
+                        <span class="notification-time">20 minutes ago</span>
+                    </a> <!-- / .notification -->
 
-				  </div> <!-- / .notification-list -->
+                    <a href="page-notifications.html" class="notification">
+                        <span class="notification-icon"><i class="fa fa-ban text-danger"></i></span>
+                        <span class="notification-title">Sync Error</span>
+                        <span class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+                        <span class="notification-time">20 minutes ago</span>
+                    </a> <!-- / .notification -->
 
-				  <a href="page-notifications.html" class="notification-link">View All Notifications</a>
+                </div> <!-- / .notification-list -->
 
-				</div> <!-- / .dropdown-menu -->
+                <a href="page-notifications.html" class="notification-link">View All Notifications</a>
 
-			  </li>
+            </div> <!-- / .dropdown-menu -->
 
-			  <li class="dropdown navbar-notification">
+        </li>
 
-				<a href="page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
-				  <i class="fa fa-envelope navbar-notification-icon"></i>
-				  <span class="visible-xs-inline">&nbsp;Messages</span>
-				</a>
+        <li class="dropdown navbar-notification">
 
-				<div class="dropdown-menu">
+            <a href="page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-envelope navbar-notification-icon"></i>
+                <span class="visible-xs-inline">&nbsp;Messages</span>
+            </a>
 
-				  <div class="dropdown-header">Messages</div>
+            <div class="dropdown-menu">
 
-				  <div class="notification-list">
+                <div class="dropdown-header">Messages</div>
 
-					<a href="page-notifications.html" class="notification">
-					  <div class="notification-icon"><img src="../../global/img/avatars/avatar-3-md.jpg" alt=""></div>
-					  <div class="notification-title">New Message</div>
-					  <div class="notification-description">Praesent dictum nisl non est sagittis luctus.</div>
-					  <div class="notification-time">20 minutes ago</div>
-					</a> <!-- / .notification -->
+                <div class="notification-list">
 
-					<a href="page-notifications.html" class="notification">
-					  <div class="notification-icon"><img src="../../global/img/avatars/avatar-3-md.jpg" alt=""></div>
-					  <div class="notification-title">New Message</div>
-					  <div class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
-					  <div class="notification-time">20 minutes ago</div>
-					</a> <!-- / .notification -->
+                    <a href="page-notifications.html" class="notification">
+                        <div class="notification-icon"><img src="../../global/img/avatars/avatar-3-md.jpg" alt=""></div>
+                        <div class="notification-title">New Message</div>
+                        <div class="notification-description">Praesent dictum nisl non est sagittis luctus.</div>
+                        <div class="notification-time">20 minutes ago</div>
+                    </a> <!-- / .notification -->
 
-					<a href="page-notifications.html" class="notification">
-					  <div class="notification-icon"><img src="../../global/img/avatars/avatar-4-md.jpg" alt=""></div>
-					  <div class="notification-title">New Message</div>
-					  <div class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
-					  <div class="notification-time">20 minutes ago</div>
-					</a> <!-- / .notification -->
+                    <a href="page-notifications.html" class="notification">
+                        <div class="notification-icon"><img src="../../global/img/avatars/avatar-3-md.jpg" alt=""></div>
+                        <div class="notification-title">New Message</div>
+                        <div class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
+                        <div class="notification-time">20 minutes ago</div>
+                    </a> <!-- / .notification -->
 
-					<a href="page-notifications.html" class="notification">
-					  <div class="notification-icon"><img src="../../global/img/avatars/avatar-5-md.jpg" alt=""></div>
-					  <div class="notification-title">New Message</div>
-					  <div class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
-					  <div class="notification-time">20 minutes ago</div>
-					</a> <!-- / .notification -->
+                    <a href="page-notifications.html" class="notification">
+                        <div class="notification-icon"><img src="../../global/img/avatars/avatar-4-md.jpg" alt=""></div>
+                        <div class="notification-title">New Message</div>
+                        <div class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
+                        <div class="notification-time">20 minutes ago</div>
+                    </a> <!-- / .notification -->
 
-				  </div> <!-- / .notification-list -->
+                    <a href="page-notifications.html" class="notification">
+                        <div class="notification-icon"><img src="../../global/img/avatars/avatar-5-md.jpg" alt=""></div>
+                        <div class="notification-title">New Message</div>
+                        <div class="notification-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</div>
+                        <div class="notification-time">20 minutes ago</div>
+                    </a> <!-- / .notification -->
 
-				  <a href="page-notifications.html" class="notification-link">View All Messages</a>
+                </div> <!-- / .notification-list -->
 
-				</div> <!-- / .dropdown-menu -->
+                <a href="page-notifications.html" class="notification-link">View All Messages</a>
 
-			  </li>
+            </div> <!-- / .dropdown-menu -->
 
-			  <li class="dropdown navbar-notification empty">
+        </li>
 
-				<a href="page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
-				  <i class="fa fa-warning navbar-notification-icon"></i>
-				  <span class="visible-xs-inline">&nbsp;&nbsp;Alerts</span>
-				</a>
+        <li class="dropdown navbar-notification empty">
 
-				<div class="dropdown-menu">
+            <a href="page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-warning navbar-notification-icon"></i>
+                <span class="visible-xs-inline">&nbsp;&nbsp;Alerts</span>
+            </a>
 
-				  <div class="dropdown-header">Alerts</div>
+            <div class="dropdown-menu">
 
-				  <div class="notification-list">
-					
-					<h4 class="notification-empty-title">No alerts here.</h4>
-					<p class="notification-empty-text">Check out what other makers are doing on Explore!</p>     
+                <div class="dropdown-header">Alerts</div>
 
-				  </div> <!-- / .notification-list -->
+                <div class="notification-list">
 
-				  <a href="page-notifications.html" class="notification-link">View All Alerts</a>
+                    <h4 class="notification-empty-title">No alerts here.</h4>
+                    <p class="notification-empty-text">Check out what other makers are doing on Explore!</p>     
 
-				</div> <!-- / .dropdown-menu -->
+                </div> <!-- / .notification-list -->
 
-			  </li>          
+                <a href="page-notifications.html" class="notification-link">View All Alerts</a>
 
-			</ul>
-			</div>
-		
+            </div> <!-- / .dropdown-menu -->
+
+        </li>          
+
+    </ul>
+</div>

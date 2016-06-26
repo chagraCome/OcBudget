@@ -1,6 +1,7 @@
 <?php
 
 namespace OC\Bundle\BudgeBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="OC\Bundle\BudgeBundle\Entity\ProgrameRepository")
  */
-class Programe
-{
+class Programe {
+
     /**
      * @var integer
      *
@@ -21,12 +22,11 @@ class Programe
      */
     private $id;
 
-    
     /**
-   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget", mappedBy="Programe")
-   */ 
+     * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Line_Budget", mappedBy="Programe")
+     */
     private $line_budget;
-    
+
     /**
      * @var string
      *
@@ -40,7 +40,8 @@ class Programe
      * @ORM\Column(name="code", type="string", length=2)
      */
     private $code;
-     /**
+
+    /**
      * @var string
      *
      * @ORM\Column(name="head", type="string", length=2)
@@ -52,8 +53,7 @@ class Programe
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -63,8 +63,7 @@ class Programe
      * @param string $labelProg
      * @return Programe
      */
-    public function setLabelProg($labelProg)
-    {
+    public function setLabelProg($labelProg) {
         $this->labelProg = $labelProg;
 
         return $this;
@@ -75,8 +74,7 @@ class Programe
      *
      * @return string 
      */
-    public function getLabelProg()
-    {
+    public function getLabelProg() {
         return $this->labelProg;
     }
 
@@ -86,8 +84,7 @@ class Programe
      * @param string $code
      * @return Programe
      */
-    public function setCode($code)
-    {
+    public function setCode($code) {
         $this->code = $code;
 
         return $this;
@@ -98,8 +95,7 @@ class Programe
      *
      * @return string 
      */
-    public function getCode()
-    {
+    public function getCode() {
         return $this->code;
     }
 
@@ -109,8 +105,7 @@ class Programe
      * @param string $head
      * @return Programe
      */
-    public function setHead($head)
-    {
+    public function setHead($head) {
         $this->head = $head;
 
         return $this;
@@ -121,19 +116,16 @@ class Programe
      *
      * @return string 
      */
-    public function getHead()
-    {
+    public function getHead() {
         return $this->head;
     }
+
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
     }
-
-  
 
     /**
      * Add lineBudget
@@ -142,8 +134,7 @@ class Programe
      *
      * @return Programe
      */
-    public function addLineBudget(\OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget)
-    {
+    public function addLineBudget(\OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget) {
         $this->line_budget[] = $lineBudget;
 
         return $this;
@@ -154,8 +145,7 @@ class Programe
      *
      * @param \OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget
      */
-    public function removeLineBudget(\OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget)
-    {
+    public function removeLineBudget(\OC\Bundle\BudgeBundle\Entity\Line_Budget $lineBudget) {
         $this->line_budget->removeElement($lineBudget);
     }
 
@@ -164,8 +154,8 @@ class Programe
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getLineBudget()
-    {
+    public function getLineBudget() {
         return $this->line_budget;
     }
+
 }

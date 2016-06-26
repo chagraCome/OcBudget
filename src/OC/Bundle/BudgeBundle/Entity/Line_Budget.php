@@ -11,26 +11,29 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="OC\Bundle\BudgeBundle\Entity\Line_BudgetRepository")
  */
-class Line_Budget
-{
-   /**
-   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Consommation", mappedBy="Line_Budget")
-   */ 
+class Line_Budget {
     /**
-   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget_taged", mappedBy="Line_Budget")
-   */ 
-    /**
-   * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget", mappedBy="Line_Budget")
-   */ 
+     * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Consommation", mappedBy="Line_Budget")
+     */
     
-     /**
-     * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Programe")
-     *@ORM\JoinColumn(nullable=false)
-      */
-    private $programe;
-     private $budget_taged;
-    private $budget;
     private $consammation;
+    /**
+     * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget_taged", mappedBy="Line_Budget")
+     */
+    private $budget_taged;
+
+    /**
+     * @ORM\OneToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Budget", mappedBy="Line_Budget")
+     */
+    private $budget;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="OC\Bundle\BudgeBundle\Entity\Programe")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $programe;
+    
+
     /**
      * @var integer
      *
@@ -89,23 +92,23 @@ class Line_Budget
      * @return integer 
      */
     /**
-   * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Classe", inversedBy="Line_Budgets")
-     @ORM\JoinTable(name="Line_class")
-   */
-     /**
-   * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Groupement", inversedBy="Line_Budgets")
-     @ORM\JoinTable(name="LineGroupement")
-   */
-  private $classes;
-  private $groupements;
-  public function __construct()
-  {
-    $this->classes = new ArrayCollection();
-     $this->groupements = new ArrayCollection();
-  }
-  
-    public function getId()
-    {
+     * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Classe", inversedBy="Line_Budgets")
+      @ORM\JoinTable(name="Line_class")
+     */
+
+    /**
+     * @ORM\ManyToMany(targetEntity="OC\Bundle\BudgeBundle\Entity\Groupement", inversedBy="Line_Budgets")
+      @ORM\JoinTable(name="LineGroupement")
+     */
+    private $classes;
+    private $groupements;
+
+    public function __construct() {
+        $this->classes = new ArrayCollection();
+        $this->groupements = new ArrayCollection();
+    }
+
+    public function getId() {
         return $this->id;
     }
 
@@ -115,8 +118,7 @@ class Line_Budget
      * @param string $article
      * @return Line_Budget
      */
-    public function setArticle($article)
-    {
+    public function setArticle($article) {
         $this->article = $article;
 
         return $this;
@@ -127,8 +129,7 @@ class Line_Budget
      *
      * @return string 
      */
-    public function getArticle()
-    {
+    public function getArticle() {
         return $this->article;
     }
 
@@ -138,8 +139,7 @@ class Line_Budget
      * @param string $parag
      * @return Line_Budget
      */
-    public function setParag($parag)
-    {
+    public function setParag($parag) {
         $this->parag = $parag;
 
         return $this;
@@ -150,8 +150,7 @@ class Line_Budget
      *
      * @return string 
      */
-    public function getParag()
-    {
+    public function getParag() {
         return $this->parag;
     }
 
@@ -161,8 +160,7 @@ class Line_Budget
      * @param string $sParag
      * @return Line_Budget
      */
-    public function setSParag($sParag)
-    {
+    public function setSParag($sParag) {
         $this->sParag = $sParag;
 
         return $this;
@@ -173,8 +171,7 @@ class Line_Budget
      *
      * @return string 
      */
-    public function getSParag()
-    {
+    public function getSParag() {
         return $this->sParag;
     }
 
@@ -184,8 +181,7 @@ class Line_Budget
      * @param string $region
      * @return Line_Budget
      */
-    public function setRegion($region)
-    {
+    public function setRegion($region) {
         $this->region = $region;
 
         return $this;
@@ -196,8 +192,7 @@ class Line_Budget
      *
      * @return string 
      */
-    public function getRegion()
-    {
+    public function getRegion() {
         return $this->region;
     }
 
@@ -207,8 +202,7 @@ class Line_Budget
      * @param string $labelLine
      * @return Line_Budget
      */
-    public function setLabelLine($labelLine)
-    {
+    public function setLabelLine($labelLine) {
         $this->labelLine = $labelLine;
 
         return $this;
@@ -219,8 +213,7 @@ class Line_Budget
      *
      * @return string 
      */
-    public function getLabelLine()
-    {
+    public function getLabelLine() {
         return $this->labelLine;
     }
 
@@ -230,8 +223,7 @@ class Line_Budget
      * @param integer $ministere
      * @return Line_Budget
      */
-    public function setMinistere($ministere)
-    {
+    public function setMinistere($ministere) {
         $this->ministere = $ministere;
 
         return $this;
@@ -242,8 +234,7 @@ class Line_Budget
      *
      * @return integer 
      */
-    public function getMinistere()
-    {
+    public function getMinistere() {
         return $this->ministere;
     }
 
@@ -253,8 +244,7 @@ class Line_Budget
      * @param \OC\Bundle\BudgeBundle\Entity\Classe $classes
      * @return Line_Budget
      */
-    public function addClass(\OC\Bundle\BudgeBundle\Entity\Classe $classes)
-    {
+    public function addClass(\OC\Bundle\BudgeBundle\Entity\Classe $classes) {
         $this->classes[] = $classes;
 
         return $this;
@@ -265,8 +255,7 @@ class Line_Budget
      *
      * @param \OC\Bundle\BudgeBundle\Entity\Classe $classes
      */
-    public function removeClass(\OC\Bundle\BudgeBundle\Entity\Classe $classes)
-    {
+    public function removeClass(\OC\Bundle\BudgeBundle\Entity\Classe $classes) {
         $this->classes->removeElement($classes);
     }
 
@@ -275,8 +264,7 @@ class Line_Budget
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getClasses()
-    {
+    public function getClasses() {
         return $this->classes;
     }
 
@@ -286,8 +274,7 @@ class Line_Budget
      * @param \OC\Bundle\BudgeBundle\Entity\Consommation $consammation
      * @return Line_Budget
      */
-    public function addConsammation(\OC\Bundle\BudgeBundle\Entity\Consommation $consammation)
-    {
+    public function addConsammation(\OC\Bundle\BudgeBundle\Entity\Consommation $consammation) {
         $this->consammation[] = $consammation;
 
         return $this;
@@ -298,8 +285,7 @@ class Line_Budget
      *
      * @param \OC\Bundle\BudgeBundle\Entity\Consommation $consammation
      */
-    public function removeConsammation(\OC\Bundle\BudgeBundle\Entity\Consommation $consammation)
-    {
+    public function removeConsammation(\OC\Bundle\BudgeBundle\Entity\Consommation $consammation) {
         $this->consammation->removeElement($consammation);
     }
 
@@ -308,8 +294,7 @@ class Line_Budget
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getConsammation()
-    {
+    public function getConsammation() {
         return $this->consammation;
     }
 
@@ -319,8 +304,7 @@ class Line_Budget
      * @param \OC\Bundle\BudgeBundle\Entity\Program $budget
      * @return Line_Budget
      */
-    public function setBudget(\OC\Bundle\BudgeBundle\Entity\Program $budget)
-    {
+    public function setBudget(\OC\Bundle\BudgeBundle\Entity\Program $budget) {
         $this->budget = $budget;
 
         return $this;
@@ -331,8 +315,7 @@ class Line_Budget
      *
      * @return \OC\Bundle\BudgeBundle\Entity\Program 
      */
-    public function getBudget()
-    {
+    public function getBudget() {
         return $this->budget;
     }
 
@@ -342,8 +325,7 @@ class Line_Budget
      * @param \OC\Bundle\BudgeBundle\Entity\Program $budgetTaged
      * @return Line_Budget
      */
-    public function setBudgetTaged(\OC\Bundle\BudgeBundle\Entity\Program $budgetTaged)
-    {
+    public function setBudgetTaged(\OC\Bundle\BudgeBundle\Entity\Program $budgetTaged) {
         $this->budget_taged = $budgetTaged;
 
         return $this;
@@ -354,8 +336,7 @@ class Line_Budget
      *
      * @return \OC\Bundle\BudgeBundle\Entity\Program 
      */
-    public function getBudgetTaged()
-    {
+    public function getBudgetTaged() {
         return $this->budget_taged;
     }
 
@@ -366,8 +347,7 @@ class Line_Budget
      *
      * @return Line_Budget
      */
-    public function setPrograme(\OC\Bundle\BudgeBundle\Entity\Programe $programe)
-    {
+    public function setPrograme(\OC\Bundle\BudgeBundle\Entity\Programe $programe) {
         $this->programe = $programe;
 
         return $this;
@@ -378,8 +358,8 @@ class Line_Budget
      *
      * @return \OC\Bundle\BudgeBundle\Entity\Programe
      */
-    public function getPrograme()
-    {
+    public function getPrograme() {
         return $this->programe;
     }
+
 }
