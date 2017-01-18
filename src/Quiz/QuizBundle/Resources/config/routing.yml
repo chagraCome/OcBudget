@@ -1,8 +1,0 @@
-quiz_quiz_homepage:
-    path:     /quiz
-    defaults: { _controller: QuizQuizBundle:Default:index }
-    
-quiz_quiz_post_form:
-    path:     /result
-    defaults: { _controller: QuizQuizBundle:Default:postForm }
-    methods:  [POST]
