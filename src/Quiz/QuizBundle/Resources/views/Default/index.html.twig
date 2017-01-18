@@ -1,0 +1,12 @@
+<form action="{{path('quiz_quiz_post_form')}}" method="POST">
+{% for data in set.questions %}
+        <div>{{ data.question|raw }}</div>
+       {% for answers in data.getAnswersLabels() %}
+        <div>{{ loop.index }} - {{ answers|raw }}<input type="checkbox" name="question{{data.id}}[]" value="{{ answers }}"></div>
+       {% endfor %}
+        <br>
+        <br>
+{% endfor %}
+        <input type="submit" value="Submit">
+</form>        
+{#        {{ form(form) }}#}

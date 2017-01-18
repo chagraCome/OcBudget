@@ -1,0 +1,11 @@
+{% for reponse in result %}
+<div>{{loop.index}} - {{reponse.question.question|raw }}</div>
+<p>Votre reponse est :</p>
+<p>Vos choix est : {{reponse.choices|join(', ')}}</p>
+{%if reponse.resultQuestion%}
+<p>Correcte</p>
+{%else%}
+<p>Faux</p>
+{%endif%}
+<br>
+{% endfor%}
